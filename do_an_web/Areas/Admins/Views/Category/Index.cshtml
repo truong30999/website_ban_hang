@@ -1,0 +1,65 @@
+﻿@model IEnumerable<do_an_web.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />  
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Category List</h2>
+
+    </div>
+    <div class="col-6 text-right">
+        <a asp-action="Create" class="btn btn-info" ><i class="fas fa-plus"></i>&nbsp; New Category</a>
+    </div>
+</div>
+<br />
+<div>
+    <table class="table table-striped border" >
+        <tr class="table-info">
+            <td>
+                @Html.DisplayNameFor(m=>m.Name)
+            </td>
+            <td>
+                @Html.DisplayNameFor(m => m.Detail)
+            </td>
+            <td>
+                @Html.DisplayNameFor(m => m.Status)
+            </td>
+        </tr>
+
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => item.Detail)
+                </td>
+        
+                @if (item.Status==0)
+                {
+                    <td>
+                        @Html.DisplayName("Out of Stock")
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @Html.DisplayName("Stocking")
+                    </td>
+                }
+
+            <td>
+     
+                <partial name="_TableButtonPartial" model="item.Id" />
+            </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+

@@ -1,0 +1,54 @@
+﻿@model do_an_web.Models.ViewModel.ProductsViewModel
+@using do_an_web.Extensions
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Products.Product_Name" class="control-label"></label>
+                <input asp-for="Products.Product_Name" class="form-control" />
+                <span asp-validation-for="Products.Product_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Products.Detail" class="control-label"></label>
+                <input asp-for="Products.Detail" class="form-control" />
+                <span asp-validation-for="Products.Detail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Products.Price" class="control-label"></label>
+                <input asp-for="Products.Price" class="form-control" />
+                <span asp-validation-for="Products.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Products.Image" class="control-label"></label>
+                <input type="file" name="files" class="form-control" />
+                @*<span asp-validation-for="Image" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Products.ViewNumber" class="control-label"></label>
+                <input asp-for="Products.ViewNumber" class="form-control" value="0" readonly />
+                <span asp-validation-for="Products.ViewNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Categories" class="control-label"></label>
+                <select asp-for="@Model.Products.CategoryId" asp-items="Model.Categories.ToSelectListItem(Model.Products.CategoryId)" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

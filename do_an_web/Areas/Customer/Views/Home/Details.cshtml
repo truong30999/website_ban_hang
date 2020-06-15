@@ -1,0 +1,102 @@
+﻿@model do_an_web.Models.Product
+@using do_an_web.Extensions
+@using Microsoft.AspNetCore.Http
+
+@inject IHttpContextAccessor HttpContextAccessor
+<br />
+
+<h2 class="text-info">Product Details</h2>
+<form method="post">
+    <div class="p-4 border rounded row">
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Product_Name" class="control-label"></label>
+                </div>
+                <div class=" col-8">
+                    <input asp-for="Product_Name" readonly class="form-control" />
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Detail" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Detail" readonly class="form-control" />
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Price" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Price" readonly class="form-control" />
+                </div>
+
+            </div>
+
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="ViewNumber" class="control-label"></label>
+                </div>
+                <div class=" col-8">
+                    <input asp-for="ViewNumber" class="form-control" readonly />
+                </div>
+
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Category" class="control-label"></label>
+                </div>
+                <div class=" col-8">
+                    <input asp-for="Category.Name" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-8">
+                    @{
+                        bool isInCart = false;
+                        List<int> lstCart = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart");
+                        if (lstCart != null && lstCart.Contains(Model.Id))
+                        {
+                            isInCart = true;
+                        }
+
+                    }
+                    @if (isInCart)
+                    {
+                        <button type="submit" value="Remove From Cart" asp-action="Remove" asp-route-id="@Model.Id" class="btn btn-danger form-control">Remove From Cart</button>
+                    }
+                    else
+                    {
+                        <button type="submit" value="Add to Cart" asp-route-id="@Model.Id" class="btn btn-primary form-control">Add to Cart</button>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+            <div class=" col-1">
+
+            </div>
+            <div class="col-3">
+                <img src="@Model.Image" width="100%" style="border-radius:5px; border: 1px solid #bbb9b9; " />
+            </div>
+            <br />
+            <div class="form-group">
+                <input hidden asp-for="Id" />
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+       
+    </div>
+</form>
+
+
+
+
+

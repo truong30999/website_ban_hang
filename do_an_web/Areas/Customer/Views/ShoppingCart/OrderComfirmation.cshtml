@@ -1,0 +1,19 @@
+﻿@model do_an_web.Models.ViewModel.ShoppingCartViewModel
+@{
+    ViewData["Title"] = "OrderComfirmation";
+}
+
+<br />
+<h2 class="text-info">Order Confirmation</h2>
+<div class="form-text">
+    Your order is being processed
+</div>
+
+<br />
+
+<partial name="~/Views/Shared/_OrderCustomerDetails.cshtml" model="Model.Order" />
+<br />
+<br />
+<partial name="~/Views/Shared/_OrderProductDetails.cshtml" model="Model.Products" />
+
+<a asp-area="Customer" asp-controller="Home" asp-action="Index" class="btn btn-success">Back to products</a>

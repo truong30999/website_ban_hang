@@ -1,0 +1,89 @@
+﻿@model do_an_web.Models.ViewModel.ProductsViewModel
+@using do_an_web.Extensions
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+
+  
+        <form method="post" enctype="multipart/form-data">
+            <div class="p-4 border rounded row">
+                <input hidden asp-for="Products.Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-8">
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Products.Product_Name" class="control-label"></label>
+                        </div>
+                        <div class=" col-8">
+                            <input asp-for="Products.Product_Name" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Products.Product_Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Products.Detail" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Products.Detail" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Products.Detail" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Products.Price" class="control-label"></label>
+                        </div>
+                        <div class="col-8">
+                            <input asp-for="Products.Price" class="form-control" />
+                        </div>
+                        <span asp-validation-for="Products.Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Products.Image" class="control-label"></label>
+                        </div>
+                        <div class=" col-8">
+                            <input type="file" name="files" class="form-control" />
+                        </div>
+                        @*<span asp-validation-for="Image" class="text-danger"></span>*@
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Products.ViewNumber" class="control-label"></label>
+                        </div>
+                        <div class=" col-8">
+                            <input asp-for="Products.ViewNumber" class="form-control"  readonly />
+                        </div>
+                        <span asp-validation-for="Products.ViewNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-4">
+                            <label asp-for="Categories" class="control-label"></label>
+                        </div>
+                        <div class=" col-8">
+                            <select asp-for="@Model.Products.CategoryId" asp-items="Model.Categories.ToSelectListItem(Model.Products.CategoryId)" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-1">
+
+                </div>
+                <div class="col-3">
+                    <img src="@Model.Products.Image" width="100%" style="border-radius:5px; border: 1px solid #bbb9b9; " />
+                </div>
+                
+                 <div class="form-group">
+                            <input type="submit" value="Update" class="btn btn-primary" /> |
+                            <a asp-action="Index" class="btn btn-success">Back to List</a>
+                 </div>
+             </div>
+        </form>
+    
+
+
+
+

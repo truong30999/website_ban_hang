@@ -1,0 +1,122 @@
+﻿<!--Sinh viên thực hiện: Nguyễn Nhật Trường-->
+@model do_an_web.Models.ViewModel.OrderDetailViewModel
+@using do_an_web.Extensions
+@using do_an_web.Utility
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<br />
+
+<h2 class="text-info">Edit Order</h2>
+
+
+<form method="post" enctype="multipart/form-data">
+    <div class="p-4 border rounded row">
+        <input hidden asp-for="Order.Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="col-6">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.Name" class="control-label"></label>
+                </div>
+                <div class=" col-8">
+                    <input asp-for="Order.Name" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.DateOrder" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Order.DateOrder" id="datepicker" type="text" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.DateOrder" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.Phone" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Order.Phone" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.Email" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Order.Email" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.Address" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Order.Address" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.PaymentMethod" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Order.PaymentMethod" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.TotalPrice" class="control-label"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Order.TotalPrice" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Order.Status" class="control-label"></label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="Order.Status" class="form-control" />
+                </div>
+                <span asp-validation-for="Order.Status" class="text-danger"></span>
+                <div class="col-4">
+                    <h6 style="padding-top:9px" class="text-info">1-Paid / 0-Unpaid</h6>
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" /> |
+                <a asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </div>
+
+        <div class=" col-6">
+            @* paricial view *@
+            <partial name="~/Views/Shared/_OrderProductDetails.cshtml" model="Model.Products" />
+        </div>
+</form>
+@section Scripts
+{
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+
+            });
+        });
+    </script>
+}
+
+
+
+
+

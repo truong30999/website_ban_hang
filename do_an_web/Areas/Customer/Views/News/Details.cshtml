@@ -1,0 +1,31 @@
+﻿@model do_an_web.Models.News
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row" >
+   
+        <img src="@Model.Image" style=" background-position: center center ; background-size: cover " />
+  
+</div>
+<br />
+<div class="row">
+    <div class="col-10">
+
+    </div>
+    <div class=" col-2">
+        <p > @Model.DateCreate.Date.ToShortDateString()</p>
+    </div>
+</div>
+<br />
+<div class="row">
+    <h2 class="text-black-50"> @Model.Tilte</h2>
+</div>
+<br />
+<div class="text-justify">
+    <p>@Model.Detail</p>
+</div>
+<div>
+    <i>Nguồn: @Model.Author</i>
+</div>
