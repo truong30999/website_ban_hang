@@ -33,6 +33,11 @@
                 @*<span asp-validation-for="Image" class="text-danger"></span>*@
             </div>
             <div class="form-group">
+                <label asp-for="Products.Amount" class="control-label"></label>
+                <input asp-for="Products.Amount" class="form-control" />
+                <span asp-validation-for="Products.Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Products.ViewNumber" class="control-label"></label>
                 <input asp-for="Products.ViewNumber" class="form-control" value="0" readonly />
                 <span asp-validation-for="Products.ViewNumber" class="text-danger"></span>
