@@ -20,7 +20,12 @@ namespace do_an_web.Areas.Admins.Controllers
         public IActionResult Index()
         {
             
-            return View(_db.Admins.ToList());
+            return View(_db.Admins.ToList());  
+
+
+
+
+
         }
         public ViewResult Detail(int id)
         {
