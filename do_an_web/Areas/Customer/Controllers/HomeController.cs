@@ -22,10 +22,14 @@ namespace do_an_web.Controllers
         {
             _db = db;
         }
-      
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(string searchString)
         {
             var productList = _db.Products.Include(m => m.Category).ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                productList = productList.Where(s => s.Product_Name.ToLower().Contains(searchString.Trim().ToLower())||s.Category.Name.ToLower().Contains(searchString.Trim().ToLower())).ToList();
+            }
             return View(productList);
         }
         //Details

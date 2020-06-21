@@ -20,7 +20,7 @@ namespace do_an_web.Models
         [Required]
         public int  Phone { get; set; }
         [Required]
-        public string Address { get; set; }
+        public string Address { get; set; }     
        
 
 
