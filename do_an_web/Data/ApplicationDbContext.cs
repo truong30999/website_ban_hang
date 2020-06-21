@@ -22,6 +22,6 @@ namespace do_an_web.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<ApplicationUser> ApplicationUser  { get; set; }
-
+        public DbSet<ApplicationCustomer> ApplicationCustomer { get; set; }
     }
 }

@@ -339,6 +339,9 @@ namespace do_an_web.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ApplicationCustomerId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<DateTime>("DateOrder")
                         .HasColumnType("datetime2");
 
@@ -361,6 +364,8 @@ namespace do_an_web.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ApplicationCustomerId");
 
                     b.ToTable("Orders");
                 });
@@ -431,6 +436,31 @@ namespace do_an_web.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("do_an_web.Models.ApplicationCustomer", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("MemberSince")
+                        .HasColumnType("datetime2");
+
+                    b.HasDiscriminator().HasValue("ApplicationCustomer");
+                });
+
             modelBuilder.Entity("do_an_web.Models.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -490,6 +520,13 @@ namespace do_an_web.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("do_an_web.Models.Order", b =>
+                {
+                    b.HasOne("do_an_web.Models.ApplicationCustomer", null)
+                        .WithMany("Orders")
+                        .HasForeignKey("ApplicationCustomerId");
                 });
 
             modelBuilder.Entity("do_an_web.Models.OrderDetail", b =>
