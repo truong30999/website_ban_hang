@@ -28,7 +28,7 @@ namespace do_an_web.Controllers
             var productList = _db.Products.Include(m => m.Category).ToList();
             if (!String.IsNullOrEmpty(searchString))
             {
-                productList = productList.Where(s => s.Product_Name.Contains(searchString)||s.Category.Name.Contains(searchString)).ToList();
+                productList = productList.Where(s => s.Product_Name.ToLower().Contains(searchString.Trim().ToLower())||s.Category.Name.ToLower().Contains(searchString.Trim().ToLower())).ToList();
             }
             return View(productList);
         }
