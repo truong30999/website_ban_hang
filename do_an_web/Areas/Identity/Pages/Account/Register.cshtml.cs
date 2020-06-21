@@ -18,7 +18,8 @@ using Microsoft.Extensions.Logging;
 
 namespace do_an_web.Areas.Identity.Pages.Account
 {
-    [Authorize(Roles =SD.SuperAdminEndUser)]
+    //[Authorize(Roles =SD.SuperAdminEndUser)]
+    [AllowAnonymous]
     public class RegisterModel : PageModel
     {
         private readonly SignInManager<IdentityUser> _signInManager;
@@ -138,7 +139,7 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     //return LocalRedirect(returnUrl);
-                    return RedirectToAction("Index", "AdminUsers", new { area = "Admins" });
+                    return RedirectToAction("Index", "Home", new { area = "Customer" });
                 }
                 foreach (var error in result.Errors)
                 {
