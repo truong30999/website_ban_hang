@@ -1,4 +1,4 @@
-﻿////Sinh viên thực hiện: Nguyễn Nhật Trường
+﻿
 using do_an_web.Models;
 using do_an_web.Utility;
 using Microsoft.AspNetCore.Identity;
@@ -38,7 +38,7 @@ namespace do_an_web.Data
             _userManager.CreateAsync(new ApplicationUser
             {
                 UserName = "admin@gmail.com",
-                Email = "admin@gmailSystem.InvalidOperationException: 'Invalid operation. The connection is closed.'.com",
+                Email = "admin@gmail.com",
                 Name = "adminitrator",
                 EmailConfirmed = true
             }, "Admin123*").GetAwaiter().GetResult();
