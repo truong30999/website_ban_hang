@@ -1,0 +1,72 @@
+﻿@model IEnumerable<do_an_web.Models.ApplicationCustomer>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Users List</h2>
+
+    </div>
+    <div class="col-6 text-right">
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-info"><i class="fas fa-plus"></i> &nbsp; New Employee</a>
+    </div>
+</div>
+<br />
+<div>
+    @if (Model.Count() > 0)
+    {
+    <table class="table table-striped border">
+        <tr class="table-info">
+            <td>
+                @Html.DisplayName("Frist Name")
+            </td>
+            <td>
+                @Html.DisplayName("Last Name")
+            </td>
+            <td>
+                @Html.DisplayName("Email")
+            </td>
+            <td>
+                @Html.DisplayName("Address")
+            </td>
+            <td>
+                @Html.DisplayName("Phone")
+            </td>
+            <td>
+                @Html.DisplayName("Member Since")
+            </td>
+        </tr>
+            @foreach (var item in Model)
+            {
+    <tr>
+        <td>
+            @Html.DisplayFor(m => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.MemberSince)
+        </td>
+        @*<td>
+            <a class="btn btn-success text-white" asp-action="Lock" asp-route-id="@item.Id">
+                <i class="fas-lock-open"></i>
+            </a>
+        </td>*@
+    </tr>
+   
+        }
+        </table>
+    }
+</div>

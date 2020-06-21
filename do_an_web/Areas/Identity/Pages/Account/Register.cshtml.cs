@@ -51,31 +51,42 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
-            [Display(Name = "Email")]
-            public string Email { get; set; }
-
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Password is required")]
+            [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$",
+           ErrorMessage = @"Password must be at least 4 characters, 
+no more than 12 characters, and must include at least one upper case letter, 
+one lower case letter, and one numeric digit")]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
+            [Required(ErrorMessage = "Confirm password")]
             [DataType(DataType.Password)]
+            [Compare("Password", ErrorMessage = "Passwords did not match")]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
-            public string ConfirmPassword { get; set; }
+            public string PasswordConfirmation { get; set; }
 
-            [Required]
-            public string Name { get; set; }
-            [Required]
-            [Display(Name ="Phone Number")]
+            [Required(ErrorMessage = "Email is required")]
+            [RegularExpression(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$", ErrorMessage = "Enter valid email")]
+            [DataType(DataType.EmailAddress)]
+            [Display(Name = "Email")]
+            public string Email { get; set; }
+
+            [Required(ErrorMessage = "First name is required")]
+            [StringLength(255, ErrorMessage = "First name must have from 2 to 255 characters", MinimumLength = 2)]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Required(ErrorMessage = "Last name is required")]
+            [StringLength(255, ErrorMessage = "Last name must have from 2 to 255 characters", MinimumLength = 2)]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }     
+
+            [Display(Name = "Addres line ")]
+            public string AddressLine { get; set; }
+           
+            [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
-            [Display(Name ="Super Admin")]
-            public bool IsSuperAdmin { get; set; }
-
-
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -90,7 +101,7 @@ namespace do_an_web.Areas.Identity.Pages.Account
             //ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, Name= Input.Name, PhoneNumber= Input.PhoneNumber, EmailConfirmed=true };
+                var user = new ApplicationCustomer { UserName = Input.Email, Email = Input.Email, FirstName= Input.FirstName, LastName = Input.LastName, Address=Input.AddressLine, PhoneNumber = Input.PhoneNumber, MemberSince=DateTime.Today.Date, EmailConfirmed=true };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -102,14 +113,12 @@ namespace do_an_web.Areas.Identity.Pages.Account
                     {
                         await _roleManager.CreateAsync(new IdentityRole(SD.SuperAdminEndUser));
                     }
-                    if(Input.IsSuperAdmin)
+                    if (!await _roleManager.RoleExistsAsync(SD.Customer))
                     {
-                        await _userManager.AddToRoleAsync(user, SD.SuperAdminEndUser);
+                        await _roleManager.CreateAsync(new IdentityRole(SD.Customer));
                     }
-                    else
-                    {
-                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
-                    }
+
+                    //await _userManager.AddToRoleAsync(user, SD.SuperAdminEndUser);
 
                     _logger.LogInformation("User created a new account with password.");
 
@@ -139,7 +148,7 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     //return LocalRedirect(returnUrl);
-                    return RedirectToAction("Index", "Home", new { area = "Customer" });
+                   return RedirectToAction("Index", "Home", new { area = "Customer" });
                 }
                 foreach (var error in result.Errors)
                 {

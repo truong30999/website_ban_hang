@@ -12,5 +12,6 @@ namespace do_an_web.Utility
 
         public const string AdminEndUser = "Admin";
         public const string SuperAdminEndUser = "Super Admin";
+        public const string Customer = "Customer";
     }
 }
