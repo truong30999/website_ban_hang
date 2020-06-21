@@ -17,100 +17,110 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <meta name="google-site-verification" content="rR21INBB9B3wyln0UEBTBJqmP6NGnc3zEDNbZSvZPfs" />
 </head>
+<style>
+    footer {
+    text-align: center;
+    padding: 3px;
+    background-color: DarkSalmon;
+    color: white;
+    }
+</style>
 <body>
-    <header>
-     
-
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Weblinhkien.com</a>
+        <partial name="_LoginPartial" />
+    </nav>
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <nav class="navbar navbar-expand-sm ">
+            <div class="navbar-header">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Weblinhkien.com</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="Customer" asp-controller="News" asp-action="Index">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " asp-area="Customer" asp-controller="Contact" asp-action="Create">Contact</a>
-                        </li>
-                        @if (User.IsInRole(SD.SuperAdminEndUser) || User.IsInRole(SD.AdminEndUser))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="Admins" asp-controller="Orders" asp-action="Index">Order</a>
-                            </li>
-                        }
-
-                        @if (User.IsInRole(SD.SuperAdminEndUser))
-                        {
-
-                            <li class=" nav-item dropdown">
-                                <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Admin Manage
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                                    <a class=" dropdown-item " asp-area="Admins" asp-controller="Category" asp-action="Index">Category</a>
-                                    <a class=" dropdown-item " asp-area="Admins" asp-controller="Product" asp-action="Index">Product</a>
-                                    <a class=" dropdown-item " asp-area="Admins" asp-controller="ManageNew" asp-action="Index">Manage New</a>
-                                    <a class=" dropdown-item " asp-area="Admins" asp-controller="ManageContact" asp-action="Index">Manage Contact</a>
-                                    <a class=" dropdown-item" asp-area="Admins" asp-controller="AdminUsers" asp-action="Index">Admin User</a>
-                                </div>
-                            </li>
-
-
-
-                                            @*<li class="nav-item">
-                                <a class="nav-link " asp-area="Admins" asp-controller="Category" asp-action="Index">Category</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="Admins" asp-controller="Product" asp-action="Index">Product</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="Admins" asp-controller="AdminUsers" asp-action="Index">Admin User</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="Admins" asp-controller="ManageNew" asp-action="Index">Manage New</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link " asp-area="Admins" asp-controller="ManageContact" asp-action="Index">Manage Contact</a>
-                            </li>*@
-
-                        }
-
-
-                        @if (HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart") != null)
-                        {
-                            <li style="color:white">
-                                <a asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index" class="nav-link">
-                                    <i class="fas fa-shopping-cart"></i>&nbsp;
-                                    @{
-                                        var count = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart").Count();
-
-                                    }
-                                    (@count)
-                                </a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li style="color:white">
-                                <a asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index" class="nav-link">
-                                    <i class="fas fa-shopping-cart"></i>&nbsp;
-                                    (0)
-                                </a>
-                            </li>
-                        }
-                    </ul>
-                    </div>
+          
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             </div>
-        </nav>
-    </header>
+    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+        <ul class="navbar-nav flex-grow-1">
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Customer" asp-controller="News" asp-action="Index">News</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Customer" asp-controller="Contact" asp-action="Create">Contact</a>
+            </li>
+            @if (User.IsInRole(SD.SuperAdminEndUser) || User.IsInRole(SD.AdminEndUser))
+            {
+                <li class="nav-item">
+                    <a class="nav-link " asp-area="Admins" asp-controller="Orders" asp-action="Index">Order</a>
+                </li>
+            }
+
+            @if (User.IsInRole(SD.SuperAdminEndUser))
+            {
+
+                <li class=" nav-item dropdown">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin Manage
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <a class=" dropdown-item " asp-area="Admins" asp-controller="Category" asp-action="Index">Category</a>
+                        <a class=" dropdown-item " asp-area="Admins" asp-controller="Product" asp-action="Index">Product</a>
+                        <a class=" dropdown-item " asp-area="Admins" asp-controller="ManageNew" asp-action="Index">Manage New</a>
+                        <a class=" dropdown-item " asp-area="Admins" asp-controller="ManageContact" asp-action="Index">Manage Contact</a>
+                        <a class=" dropdown-item" asp-area="Admins" asp-controller="AdminUsers" asp-action="Index">Admin User</a>
+                    </div>
+                </li>
+
+
+
+                @*<li class="nav-item">
+                <a class="nav-link " asp-area="Admins" asp-controller="Category" asp-action="Index">Category</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Admins" asp-controller="Product" asp-action="Index">Product</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Admins" asp-controller="AdminUsers" asp-action="Index">Admin User</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Admins" asp-controller="ManageNew" asp-action="Index">Manage New</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Admins" asp-controller="ManageContact" asp-action="Index">Manage Contact</a>
+            </li>*@
+
+            }
+            @if (HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart") != null)
+            {
+                <li style="color:white">
+                    <a asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>&nbsp;
+                        @{
+                            var count = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart").Count();
+
+                        }
+                        (@count)
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li style="color:white">
+                    <a asp-area="Customer" asp-controller="ShoppingCart" asp-action="Index" class="nav-link">
+                        <i class="fas fa-shopping-cart"></i>&nbsp;
+                        (0)
+                    </a>
+                </li>
+            }
+        </ul>
+       
+    </div>
+
+    </nav>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -122,10 +132,12 @@
             &copy; 2019 - do_an_web - Address: 01 Võ Văn Ngân, Quận Thủ Đức, Thành phố Hồ Chí Minh
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/jquery-ui.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
 </body>
 </html>
