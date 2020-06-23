@@ -26,9 +26,8 @@
     <meta name="google-site-verification" content="rR21INBB9B3wyln0UEBTBJqmP6NGnc3zEDNbZSvZPfs" />
 </head>
 <style>
-   
-    footer
-    {
+
+    footer {
         height: 50px;
         background: PapayaWhip;
     }
@@ -65,7 +64,7 @@
 
                         <li class=" nav-item dropdown">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Admin Manage
+                                Admin Manager
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                 <a class=" dropdown-item " asp-area="Admins" asp-controller="Category" asp-action="Index">Category</a>
@@ -113,62 +112,55 @@
         </main>
     </div>
     <span></span>
-    <!-- Footer -->
-    <footer class="page-footer font-small blue pt-4">
-        <div class="container-fluid text-center text-md-left">
-            <div class="row" style="color:black">
-                <div class="col-md-6 mt-md-0 mt-3">
-                    <h5 class="text-uppercase">Footer Content</h5>
-                    <p>Here you can use rows and columns to organize your footer content.</p>
 
-                </div>
-                <hr class="clearfix w-100 d-md-none pb-3">
+            <script src="js/jquery.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.scrollUp.min.js"></script>
+            <script src="js/price-range.js"></script>
 
-                <div class="col-md-3 mb-md-0 mb-3">
+            <script src="js/jquery.prettyPhoto.js"></script>
+            <script src="js/main.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+            <script src="~/js/jquery-ui.js" asp-append-version="true"></script>
+            @RenderSection("Scripts", required: false)
 
-                    <!-- Links -->
-                    <h5 class="text-uppercase">Thông tin liên lạc</h5>
+</body>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <div class="mx-auto p-1  text-white text-center" style="width: 200px;">
+            <div style="font-size:20px;font-weight:lighter; color:beige">Hệ thống cửa hàng </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <header>
 
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#!">Email</a>
-                        </li>
-                        <li>
-                            <a href="#!">Facbook</a>
-                        </li>
-                        <li>
-                            <a href="#!">Yahoo</a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- Grid column -->
+            <div class="col-md-4">
+                <div style="font-size:20px;font-weight:lighter; color:#36454f"> TP Hồ Chí Minh </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Số 520 Cách Mạng Tháng Tám - Quận 3 </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Tel: 1900 1903 (máy lẻ 710) - (028) 73078877 </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Email: weblinhkien@gmail.com </div>
+            </div>
+            <div class="col-md-4">
+                <div style="font-size:20px;font-weight:lighter; color:#36454f"> Hà Nội </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Số 398 Nguyễn Văn Cừ - Long Biên - Hà Nội </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Tel: 19001903 (máy lẻ 808) - (024) 73088877 </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Email: weblinhkien@gmail.com </div>
+            </div>
+            <div class="col-md-4 text-justify">
+                <div style="font-size:20px;font-weight:lighter; color:#36454f"> Đà Nẵng </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> 698 Tôn Đức Thắng, Liên Chiểu, Đà Nẵng </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Tel: 19001903 (máy lẻ 808) - (024) 73088877  </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Email: weblinhkien@gmail.com </div>
 
             </div>
-            <!-- Grid row -->
-
-        </div>
-        <div class="footer-copyright text-center py-3">
-            © 2020 Copyright:
-            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-        </div>
-        <!-- Copyright -->
-
-    </footer>
-    <!-- Footer -->
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.scrollUp.min.js"></script>
-    <script src="js/price-range.js"></script>
-
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/main.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    <script src="~/js/jquery-ui.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
-
+        </header>
+    </div>
+    <div class="container body-content">
+        <hr />
+    </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3"></nav>
 </body>
 </html>
 
