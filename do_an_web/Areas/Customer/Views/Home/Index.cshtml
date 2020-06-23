@@ -18,7 +18,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="col-sm-12">
-                            <img src="~/images/ProductImage/sell1.jpg" />
+                            <img src="~/images/ProductImage/sell3.jpg" />
 
                         </div>
                     </div>
@@ -38,11 +38,10 @@
                     <i class="fa fa-angle-right"></i>
                 </a>
             </div>
-
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" style="padding-top:20px">
     <div class="row">
         <div class="col-sm-3">
             <div class="left-sidebar">
@@ -55,27 +54,14 @@
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <td>
-                                        <a asp-action="Index" asp-controller="Home" class="btn btn-light" asp-route-id="@std.Id">@std.Name</a>
+                                        <a asp-action="Index" asp-controller="Home" class="btn btn-light" asp-route-id="@std.Name">@std.Name</a>
                                     </td>
                                 </h4>
                             </div>
-
                         </div>
                     }
                 </div><!--/category-products-->
 
-                <div class="brands_products">
-                    <!--brands_products-->
-                    <h2>Brands</h2>
-                    <div class="brands-name">
-                        <ul class="nav nav-pills nav-stacked">
-                            @foreach (var product in Model)
-                            {
-                                <li><a href="#"> <span class="pull-right">(@product.Amount)</span>@product.Product_Name</a></li>
-                            }
-                        </ul>
-                    </div>
-                </div><!--/brands_products-->
 
                 <div class="price-range">
                     <!--price-range-->
@@ -104,14 +90,14 @@
                                     <h3>@product.Product_Name</h3>
                                     <h2>@product.Price.ToString("N0") vnd</h2>
                                     <div><i>Lượt xem: @product.ViewNumber</i></div>
-                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default "><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> Add to cart</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
                                         <h3>@product.Product_Name</h3>
                                         <h2>@product.Price.ToString("N0") vnd</h2>
-                                        <div><i>Lượt xem: @product.ViewNumber</i></div>
-                                        <a asp-action="Details" asp-controller="Home" class="btn btn-default "><i class="fa fa-shopping-cart" asp-route-id="@product.Id"></i>Add to cart</a>
+                                        <div><i>Lượt xem: @product.ViewNumber</i></div>                                       
+                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> Add to cart</a>
                                     </div>                             
                                 </div>
                             </div>
