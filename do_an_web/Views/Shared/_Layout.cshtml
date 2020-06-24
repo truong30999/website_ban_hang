@@ -72,7 +72,7 @@
                                 <a class=" dropdown-item " asp-area="Admins" asp-controller="ManageNew" asp-action="Index">Manager New</a>
                                 <a class=" dropdown-item " asp-area="Admins" asp-controller="ManageContact" asp-action="Index">Manager Contact</a>
                                 <a class=" dropdown-item " asp-area="Admins" asp-controller="AdminUsers" asp-action="Index">Admin User</a>
-                                <a class=" dropdown-item " asp-area="Admins" asp-controller="Users" asp-action="Index">User</a>
+                                <a class=" dropdown-item " asp-area="Admins" asp-controller="User" asp-action="Index">User</a>
                             </div>
                         </li>
 
@@ -112,7 +112,6 @@
         </main>
     </div>
     <span></span>
-
             <script src="~/js/jquery.js"></script>
             <script src="~/js/bootstrap.min.js"></script>
             <script src="~/js/jquery.scrollUp.min.js"></script>
@@ -124,7 +123,6 @@
             <script src="~/js/site.js" asp-append-version="true"></script>
             <script src="~/js/jquery-ui.js" asp-append-version="true"></script>
             @RenderSection("Scripts", required: false)
-
 </body>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
@@ -139,23 +137,11 @@
 
             <div class="col-md-4">
                 <div style="font-size:20px;font-weight:lighter; color:#36454f"> TP Hồ Chí Minh </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Số 520 Cách Mạng Tháng Tám - Quận 3 </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Tel: 1900 1903 (máy lẻ 710) - (028) 73078877 </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> 01 Võ Văn Ngân, phường Linh Chiểu, Quận Thủ Đức </div>
+                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Tel: 0901950160 </div>
                 <div style="font-size:15px;font-weight:lighter; color:#36454f"> Email: weblinhkien@gmail.com </div>
             </div>
-            <div class="col-md-4">
-                <div style="font-size:20px;font-weight:lighter; color:#36454f"> Hà Nội </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Số 398 Nguyễn Văn Cừ - Long Biên - Hà Nội </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Tel: 19001903 (máy lẻ 808) - (024) 73088877 </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Email: weblinhkien@gmail.com </div>
-            </div>
-            <div class="col-md-4 text-justify">
-                <div style="font-size:20px;font-weight:lighter; color:#36454f"> Đà Nẵng </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> 698 Tôn Đức Thắng, Liên Chiểu, Đà Nẵng </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Tel: 19001903 (máy lẻ 808) - (024) 73088877  </div>
-                <div style="font-size:15px;font-weight:lighter; color:#36454f"> Email: weblinhkien@gmail.com </div>
-
-            </div>
+            
         </header>
     </div>
     <div class="container body-content">

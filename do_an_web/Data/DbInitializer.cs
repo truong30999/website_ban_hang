@@ -34,6 +34,8 @@ namespace do_an_web.Data
 
             _roleManager.CreateAsync(new IdentityRole(SD.AdminEndUser)).GetAwaiter().GetResult();
             _roleManager.CreateAsync(new IdentityRole(SD.SuperAdminEndUser)).GetAwaiter().GetResult();
+            _roleManager.CreateAsync(new IdentityRole(SD.Customer)).GetAwaiter().GetResult();
+
 
             _userManager.CreateAsync(new ApplicationUser
             {
