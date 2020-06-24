@@ -5,19 +5,14 @@
     
     <ul class="navbar-nav navbar-right">
         @if (SignInManager.IsSignedIn(User))
-        {
-            <form class="form-inline" asp-controller="Home" asp-action="Index" method="get">
-                <input class="form-control mr-sm-2" size="10" type="text" placeholder="Search">
-                <button class="btn btn-success" type="submit">Search</button>
+        {           
+            <nav class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</nav>
+
+
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <span><button @*style="padding-top:14px"*@ type="submit" class="nav-link btn btn-link">Logout</button></span>
             </form>
-            <li class="nav-item">
-                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name</a>
-            </li>
-            <li class="nav-item">
-                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                    <button style="padding-top:14px" type="submit" class="nav-link btn btn-link">Logout</button>
-                </form>
-            </li>
+
         }
         else
         {
@@ -25,6 +20,10 @@
                 <input class="form-control mr-sm-2" size="10" type="text" placeholder="Search">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
+            
+            <li class="nav-item">
+                <a class="nav-link " asp-area="Identity" asp-page="/Account/Register">Register</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link " asp-area="Identity" asp-page="/Account/Login">Login</a>
             </li>
