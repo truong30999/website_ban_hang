@@ -13,7 +13,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="col-sm-12">
-                            <img src="~/images/ProductImage/sell1.jpg"/>
+                            <img src="~/images/ProductImage/sell1.jpg" />
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -24,7 +24,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="col-sm-12">
-                            <img src="~/images/ProductImage/sell2.png"  />
+                            <img src="~/images/ProductImage/sell2.png" />
 
                         </div>
                     </div>
@@ -50,19 +50,24 @@
                     <!--category-productsr-->
                     @foreach (var std in ViewData["Category"] as IList<Category>)
                     {
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <td>
-                                        <a asp-action="Index" asp-controller="Home" class="btn btn-light" asp-route-id="@std.Name">@std.Name</a>
-                                    </td>
-                                </h4>
-                            </div>
+                        @*<div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <td>
+                                            <a asp-action="Index" asp-controller="Home" class="btn btn-light" asp-route-id="@std.Id">@std.Name</a>
+                                        </td>
+                                    </h4>
+                                </div>
+                            </div>*@
+                        <div class="panel-heading">
+                            <tr>
+                                <td>
+                                    <a asp-action="Index" asp-controller="Home" class="btn btn-light" asp-route-id="@std.Name">@std.Name</a>
+                                </td>
+                            </tr>
                         </div>
                     }
                 </div><!--/category-products-->
-
-
                 <div class="price-range">
                     <!--price-range-->
                     <h2>Price Range</h2>
@@ -90,15 +95,15 @@
                                     <h3>@product.Product_Name</h3>
                                     <h2>@product.Price.ToString("N0") vnd</h2>
                                     <div><i>Lượt xem: @product.ViewNumber</i></div>
-                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> View Details</a>
+                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> Add to cart</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
                                         <h3>@product.Product_Name</h3>
                                         <h2>@product.Price.ToString("N0") vnd</h2>
-                                        <div><i>Lượt xem: @product.ViewNumber</i></div>                                       
-                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> View Details</a>
-                                    </div>                             
+                                        <div><i>Lượt xem: @product.ViewNumber</i></div>
+                                        <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> Add to cart</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -108,7 +113,5 @@
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
