@@ -31,6 +31,7 @@ namespace do_an_web.Areas.Customer.Controllers
 
         public async Task<IActionResult> Index()
         {
+           
             List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssShoppingCart");
             if (lstShoppingCart == null)
                 return View(shoppingCartVM);
@@ -51,19 +52,25 @@ namespace do_an_web.Areas.Customer.Controllers
         public IActionResult IndexPost()
         {
             List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssShoppingCart");
+            List<int> lstOrderDetail = HttpContext.Session.Get<List<int>>("ssOrderDetail");
             Order order = shoppingCartVM.Order;
            
             _db.Orders.Add(order);
             _db.SaveChanges();
 
             int orderId = order.Id;
-            foreach(int productId in lstCartItems)
+            foreach(int orderDetailId in lstOrderDetail)
             {
-                OrderDetail orderDetail = new OrderDetail { ProductId = productId, OrderId = orderId, Status=1, Amount=1 };
-                _db.OrderDetails.Add(orderDetail);
+                // OrderDetail orderDetail = new OrderDetail { ProductId = productId, OrderId = orderId, Status=1, Amount=1 };
+                OrderDetail orderDetail = _db.OrderDetails.Where(a => a.Id == orderDetailId).FirstOrDefault();
+                orderDetail.OrderId = orderId;
+                orderDetail.Status = 1;
+                _db.OrderDetails.Update(orderDetail);
             }
             _db.SaveChanges();
+            lstOrderDetail = new List<int>();
             lstCartItems = new List<int>();
+            HttpContext.Session.Set("ssOrderCart", lstOrderDetail);
             HttpContext.Session.Set("ssShoppingCart", lstCartItems);
             return RedirectToAction("OrderComfirmation", "ShoppingCart", new { Id = orderId }) ;
 

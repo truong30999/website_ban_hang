@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using do_an_web.Models;
+using do_an_web.Models.ViewModel;
 using do_an_web.Data;
 using Microsoft.EntityFrameworkCore;
 using do_an_web.Extensions;
@@ -40,21 +41,33 @@ namespace do_an_web.Controllers
         {
             var product = _db.Products.Include(m => m.Category).Where(m=>m.Id==id).FirstOrDefault();
             product.ViewNumber++;
+            ProductCountViewModel productCountViewModel = new ProductCountViewModel() { Product = product };
             _db.Update(product);
             _db.SaveChanges();
-            return View(product);
+            return View(productCountViewModel);
         }
         [HttpPost,ActionName("Details")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DetailsPost(int id)
+        public async Task<IActionResult> DetailsPost(int id, int count)
         {
             List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssShoppingCart");
+            List<int> lstOrderdetail = HttpContext.Session.Get<List<int>>("ssOrderDetail");
+            OrderDetail orderDetail = new OrderDetail() { ProductId = id, Amount = count, Status = 2 };
             if(lstShoppingCart==null)
             {
                 lstShoppingCart = new List<int>();
             }
+            if (lstOrderdetail == null)
+            {
+                lstOrderdetail = new List<int>();
+            }
             lstShoppingCart.Add(id);
+           
+            _db.OrderDetails.Add(orderDetail);
+            _db.SaveChanges();
+            lstOrderdetail.Add(orderDetail.Id);
             HttpContext.Session.Set("ssShoppingCart", lstShoppingCart);
+            HttpContext.Session.Set("ssOrderDetail", lstOrderdetail);
             return RedirectToAction("Index", "Home", new { Areas="Customer" });
         }
 

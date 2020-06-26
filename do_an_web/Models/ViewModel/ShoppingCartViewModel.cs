@@ -9,5 +9,6 @@ namespace do_an_web.Models.ViewModel
     {
         public Order Order { get; set; }
         public List<Product> Products { get; set; }
+       
     }
 }

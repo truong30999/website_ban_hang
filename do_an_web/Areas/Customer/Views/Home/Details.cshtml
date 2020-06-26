@@ -1,4 +1,4 @@
-﻿@model do_an_web.Models.Product
+﻿@model do_an_web.Models.ViewModel.ProductCountViewModel
 @using do_an_web.Extensions
 @using Microsoft.AspNetCore.Http
 
@@ -11,47 +11,55 @@
         <div class="col-8">
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Product_Name" class="control-label"></label>
+                    <label asp-for="@Model.Product.Product_Name" class="control-label"></label>
                 </div>
                 <div class=" col-8">
-                    <input asp-for="Product_Name" readonly class="form-control" />
+                    <input asp-for="@Model.Product.Product_Name" readonly class="form-control" />
                 </div>
 
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Detail" class="control-label"></label>
+                    <label asp-for="@Model.Product.Detail" class="control-label"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Detail" readonly class="form-control" />
+                    <input asp-for="@Model.Product.Detail" readonly class="form-control" />
                 </div>
 
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Price" class="control-label"></label>
+                    <label asp-for="@Model.Product.Price" class="control-label"></label>
                 </div>
                 <div class="col-8">
-                    <input asp-for="Price" readonly class="form-control" />
+                    <input asp-for="@Model.Product.Price" readonly class="form-control" />
                 </div>
 
             </div>
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="ViewNumber" class="control-label"></label>
+                    <label asp-for="@Model.Product.ViewNumber" class="control-label"></label>
                 </div>
                 <div class=" col-8">
-                    <input asp-for="ViewNumber" class="form-control" readonly />
+                    <input asp-for="@Model.Product.ViewNumber" class="form-control" readonly />
                 </div>
 
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Category" class="control-label"></label>
+                    <label asp-for="@Model.Product.Category" class="control-label"></label>
                 </div>
                 <div class=" col-8">
-                    <input asp-for="Category.Name" class="form-control" readonly />
+                    <input asp-for="@Model.Product.Category.Name" class="form-control" readonly />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="@Model.count" class="control-label"></label>
+                </div>
+                <div class=" col-8">
+                    <input asp-for="@Model.count" value="1" class="form-control"  />
                 </div>
             </div>
             <div class="form-group row">
@@ -62,7 +70,7 @@
                     @{
                         bool isInCart = false;
                         List<int> lstCart = HttpContextAccessor.HttpContext.Session.Get<List<int>>("ssShoppingCart");
-                        if (lstCart != null && lstCart.Contains(Model.Id))
+                        if (lstCart != null && lstCart.Contains(Model.Product.Id))
                         {
                             isInCart = true;
                         }
@@ -70,17 +78,17 @@
                     }
                     @if (isInCart)
                     {
-                        <button type="submit" value="Remove From Cart" asp-action="Remove" asp-route-id="@Model.Id" class="btn btn-danger form-control">Remove From Cart</button>
+                        <button type="submit" value="Remove From Cart" asp-action="Remove" asp-route-id="@Model.Product.Id" class="btn btn-danger form-control">Remove From Cart</button>
                     }
                     else
                     {
                         if (User.IsInRole(do_an_web.Utility.SD.Customer))
                         {
-                            <button type="submit" value="Add to Cart" asp-route-id="@Model.Id" class="btn btn-primary form-control">Add to Cart</button>
+                            <button type="submit" value="Add to Cart" asp-route-id="@Model.Product.Id" asp-route-count="@Model.count" class="btn btn-primary form-control">Add to Cart</button>
                         }
                         else
                         {
-                            
+
                             <button type="submit" value="Add to Cart" asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary form-control" onclick="notify()">Add to Cart</button>
                         }
                     }
@@ -93,11 +101,11 @@
 
             </div>
             <div class="col-3">
-                <img src="@Model.Image" width="100%" style="border-radius:5px; border: 1px solid #bbb9b9; " />
+                <img src="@Model.Product.Image" width="100%" style="border-radius:5px; border: 1px solid #bbb9b9; " />
             </div>
             <br />
             <div class="form-group">
-                <input hidden asp-for="Id" />
+                <input hidden asp-for="@Model.Product.Id" />
                 <a asp-action="Index" class="btn btn-success">Back to List</a>
             </div>
        
