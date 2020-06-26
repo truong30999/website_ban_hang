@@ -15,19 +15,20 @@
 </div>
 <br />
 <div>
-    <table class="table table-striped border" >
-        <tr class="table-info">
-            <td>
-                @Html.DisplayNameFor(m=>m.Name)
-            </td>
-            <td>
-                @Html.DisplayNameFor(m => m.Detail)
-            </td>
-            <td>
-                @Html.DisplayNameFor(m => m.Status)
-            </td>
-        </tr>
-
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Detail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.Status)
+                </th>
+            </tr>
+        </thead>
         @foreach(var item in Model)
         {
             <tr>
