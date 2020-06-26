@@ -85,6 +85,15 @@
             <div class="features_items">
                 <!--features_items-->
                 <h2 class="title text-center">Features Items</h2>
+                <div>
+                    <form asp-controller="Home" asp-action="Index" method="get">
+                        <div>
+                            <label style="font-size:25px; color:steelblue">Shop linh kien </label>
+                            <input size="50" placeholder="tim kiem san phan , danh muc san pham mong muon" type="text" name="id" />
+                            <input type="submit" value="Search" />
+                        </div>
+                    </form>
+                </div>
                 @foreach (var product in Model)
                 {
                     <div class="col-sm-4">
