@@ -84,16 +84,7 @@
         <div class="col-sm-9 padding-right">
             <div class="features_items">
                 <!--features_items-->
-                <h2 class="title text-center">Features Items</h2>
-                <div>
-                    <form asp-controller="Home" asp-action="Index" method="get">
-                        <div>
-                            <label style="font-size:25px; color:steelblue">Shop linh kien </label>
-                            <input size="50" placeholder="tim kiem san phan , danh muc san pham mong muon" type="text" name="id" />
-                            <input type="submit" value="Search" />
-                        </div>
-                    </form>
-                </div>
+                <h2 class="title text-center">Features Items</h2>               
                 @foreach (var product in Model)
                 {
                     <div class="col-sm-4">
@@ -104,14 +95,14 @@
                                     <h3>@product.Product_Name</h3>
                                     <h2>@product.Price.ToString("N0") vnd</h2>
                                     <div><i>Lượt xem: @product.ViewNumber</i></div>
-                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> Add to cart</a>
+                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-search " asp-route-id="@product.Id"> View Details</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
                                         <h3>@product.Product_Name</h3>
                                         <h2>@product.Price.ToString("N0") vnd</h2>
                                         <div><i>Lượt xem: @product.ViewNumber</i></div>
-                                        <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-shopping-cart " asp-route-id="@product.Id"> Add to cart</a>
+                                        <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-search " asp-route-id="@product.Id"> View Details</a>
                                     </div>
                                 </div>
                             </div>

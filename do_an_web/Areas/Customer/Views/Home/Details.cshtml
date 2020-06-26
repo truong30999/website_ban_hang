@@ -74,7 +74,15 @@
                     }
                     else
                     {
-                        <button type="submit" value="Add to Cart" asp-route-id="@Model.Id" class="btn btn-primary form-control">Add to Cart</button>
+                        if (User.IsInRole(do_an_web.Utility.SD.Customer))
+                        {
+                            <button type="submit" value="Add to Cart" asp-route-id="@Model.Id" class="btn btn-primary form-control">Add to Cart</button>
+                        }
+                        else
+                        {
+                            
+                            <button type="submit" value="Add to Cart" asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary form-control" onclick="notify()">Add to Cart</button>
+                        }
                     }
 
 
@@ -95,7 +103,12 @@
        
     </div>
 </form>
+<script>
 
+    function notify() {
+        alert("Vui lòng đăng nhập trước khi mua hàng!");
+    }
+</script>
 
 
 

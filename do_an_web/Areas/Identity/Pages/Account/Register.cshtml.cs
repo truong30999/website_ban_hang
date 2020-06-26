@@ -118,7 +118,7 @@ one lower case letter, and one numeric digit")]
                         await _roleManager.CreateAsync(new IdentityRole(SD.Customer));
                     }
 
-                    //await _userManager.AddToRoleAsync(user, SD.SuperAdminEndUser);
+                    await _userManager.AddToRoleAsync(user, SD.Customer);
 
                     _logger.LogInformation("User created a new account with password.");
 

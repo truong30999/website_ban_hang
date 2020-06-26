@@ -27,7 +27,7 @@ namespace do_an_web.Areas.Customer.Controllers
                 Products = new List<Product>()
             };
         }
-
+      
 
         public async Task<IActionResult> Index()
         {

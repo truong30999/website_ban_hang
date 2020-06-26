@@ -92,7 +92,7 @@
                             <label>Date Order :</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
-                            <input asp-for="Order.DateOrder" value="@DateTime.Now" type="text" class="form-control" id="datepicker" readonly />
+                            <input asp-for="Order.DateOrder" value="@DateTime.Now" type="text" class="form-control"  readonly />
                             <span asp-validation-for="Order.DateOrder" class="text-danger"></span>
                         </div>
                         <div class="col-12">

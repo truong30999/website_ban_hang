@@ -103,7 +103,14 @@ namespace do_an_web.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole(SD.Customer));
                     }
 
-                    await _userManager.AddToRoleAsync(user, SD.Customer);
+                    if (Input.IsSuperAdmin)
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.SuperAdminEndUser);
+                    }
+                    else
+                    {
+                        await _userManager.AddToRoleAsync(user, SD.AdminEndUser);
+                    }
 
                     _logger.LogInformation("User created a new account with password.");
 
