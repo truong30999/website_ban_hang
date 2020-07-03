@@ -16,15 +16,21 @@
     <link rel=" stylesheet" href="~/css/jquery-ui.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <!-- them -->
+    <link rel="stylesheet" type="text/css" href="~/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/fonts/iconic/css/material-design-iconic-font.min.css">
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
     <link href="~/css/font-awesome.min.css" rel="stylesheet">
     <link href="~/css/prettyPhoto.css" rel="stylesheet">
     <link href="~/css/price-range.css" rel="stylesheet">
     <link href="~/css/animate.css" rel="stylesheet">
-    <link href="~/css/main.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
     <link href="~/css/responsive.css" rel="stylesheet">
     <meta name="google-site-verification" content="rR21INBB9B3wyln0UEBTBJqmP6NGnc3zEDNbZSvZPfs" />
+   
 </head>
+
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
@@ -124,7 +130,7 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container" style="min-height:600px">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -135,11 +141,11 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="single-widget" style="padding-left:40px">
-                    <h3 style="color:white">Địa chỉ cửa hàng</h3>                 
-                        <div style="font-size:20px;font-weight:lighter; color:white"> TP Hồ Chí Minh </div>
-                        <div style="font-size:15px;font-weight:lighter; color:white"> 01 Võ Văn Ngân, phường Linh Chiểu, Quận Thủ Đức </div>
-                        <div style="font-size:15px;font-weight:lighter; color:white"> Tel: 0901950160 </div>
-                        <div style="font-size:15px;font-weight:lighter; color:white"> Email: weblinhkien@gmail.com </div>                  
+                    <h3 style="color:white">Địa chỉ cửa hàng</h3>
+                    <div style="font-size:20px;font-weight:lighter; color:white"> TP Hồ Chí Minh </div>
+                    <div style="font-size:15px;font-weight:lighter; color:white"> 01 Võ Văn Ngân, phường Linh Chiểu, Quận Thủ Đức </div>
+                    <div style="font-size:15px;font-weight:lighter; color:white"> Tel: 0901950160 </div>
+                    <div style="font-size:15px;font-weight:lighter; color:white"> Email: weblinhkien@gmail.com </div>
                 </div>
             </div>
             <div class="col-sm-2">
@@ -147,13 +153,14 @@
                     <h3 style="color:white">Thông tin liên lạc</h3>
                     <ul class="nav navbar-nav">
                         <li><a href="https://www.facebook.com/huaahuy"><i class="fa fa-facebook"></i>Facbook</a></li>
-                        <li><a href="https://twitter.com/explore/"><i class="fa fa-twitter"></i>Twitter</a></li>                       
+                        <li><a href="https://twitter.com/explore/"><i class="fa fa-twitter"></i>Twitter</a></li>
                         <li><a href="https://google.com/"><i class="fa fa-google-plus"></i>Google</a></li>
                     </ul>
                 </div>
-            </div>                             
+            </div>
         </div>
     </div>
+
     <script src="~/js/jquery.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="~/js/jquery.scrollUp.min.js"></script>
@@ -165,6 +172,8 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/jquery-ui.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+    <!--===============================================================================================-->
+
 </body>
 </html>
-
