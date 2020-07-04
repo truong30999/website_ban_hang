@@ -6,38 +6,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-info"> News Details</h1>
+<h1 class="text-info"> Chi tiết tin tức</h1>
 
 
 <hr />
 <div class="row">
     <div class="col-4">
         <div class="form-group">
-            <label asp-for="Tilte" class="control-label"></label>
+            <label asp-for="Tilte" class="control-label">Tiêu đề</label>
             <input asp-for="Tilte" disabled class="form-control" />
 
         </div>
         <div class="form-group">
-            <label asp-for="Decreption" class="control-label"></label>
+            <label asp-for="Decreption" class="control-label">Mô tả</label>
             <input asp-for="Decreption" disabled class="form-control" />
 
         </div>
 
         <div class="form-group">
-            <label asp-for="Author" class="control-label"></label>
+            <label asp-for="Author" class="control-label">Tác giả</label>
             <input asp-for="Author" disabled class="form-control" />
 
         </div>
 
 
         <div class="form-group">
-            <label asp-for="DateCreate" class="control-label"></label>
+            <label asp-for="DateCreate" class="control-label">Ngày viết</label>
             <input asp-for="DateCreate" disabled class="form-control" />
 
         </div>
     </div>
     <div class="col-5">
-        @Html.DisplayName("Content")
+        @Html.DisplayName("Nội dung")
         <div class=" form-group">
             <textarea disabled asp-for="Detail" cols="64" rows="16"></textarea>
 
@@ -48,8 +48,8 @@
     </div>
 </div>
 <div class="form-group">
-    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index" class="btn btn-success">Back to List</a>
+    <a asp-action="Edit" class="btn btn-danger" asp-route-id="@Model.Id">Sửa</a> |
+    <a asp-action="Index" class="btn btn-success">Quay lại danh sách</a>
 </div>
 
 
