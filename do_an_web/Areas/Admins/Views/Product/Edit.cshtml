@@ -4,9 +4,9 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Cập nhật sản phẩm</h1>
 
-<h4>Product</h4>
+<h4>Sản phẩm</h4>
 <hr />
 
   
@@ -17,7 +17,7 @@
                 <div class="col-8">
                     <div class="form-group row">
                         <div class="col-4">
-                            <label asp-for="Products.Product_Name" class="control-label"></label>
+                            <label asp-for="Products.Product_Name" class="control-label">Tên </label>
                         </div>
                         <div class=" col-8">
                             <input asp-for="Products.Product_Name" class="form-control" />
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-4">
-                            <label asp-for="Products.Detail" class="control-label"></label>
+                            <label asp-for="Products.Detail" class="control-label">Chi tiết</label>
                         </div>
                         <div class="col-8">
                             <input asp-for="Products.Detail" class="form-control" />
@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-4">
-                            <label asp-for="Products.Price" class="control-label"></label>
+                            <label asp-for="Products.Price" class="control-label">Giá</label>
                         </div>
                         <div class="col-8">
                             <input asp-for="Products.Price" class="form-control" />
@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-4">
-                            <label asp-for="Products.Image" class="control-label"></label>
+                            <label asp-for="Products.Image" class="control-label">Hình ảnh</label>
                         </div>
                         <div class=" col-8">
                             <input type="file" name="files" class="form-control" />
@@ -53,7 +53,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-4">
-                            <label asp-for="Products.Amount" class="control-label"></label>
+                            <label asp-for="Products.Amount" class="control-label">Số lượng</label>
                         </div>
                         <div class=" col-8">
                             <input asp-for="Products.Amount" class="form-control"  />
@@ -62,7 +62,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-4">
-                            <label asp-for="Products.ViewNumber" class="control-label"></label>
+                            <label asp-for="Products.ViewNumber" class="control-label">Lượt xem</label>
                         </div>
                         <div class=" col-8">
                             <input asp-for="Products.ViewNumber" class="form-control" readonly />
@@ -71,7 +71,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-4">
-                            <label asp-for="Categories" class="control-label"></label>
+                            <label asp-for="Categories" class="control-label">Danh sách sản phẩm</label>
                         </div>
                         <div class=" col-8">
                             <select asp-for="@Model.Products.CategoryId" asp-items="Model.Categories.ToSelectListItem(Model.Products.CategoryId)" class="form-control"></select>
@@ -86,8 +86,8 @@
                 </div>
                 
                  <div class="form-group">
-                            <input type="submit" value="Update" class="btn btn-primary" /> |
-                            <a asp-action="Index" class="btn btn-success">Back to List</a>
+                            <input type="submit" value="Cập nhật" class="btn btn-danger" /> |
+                            <a asp-action="Index" class="btn btn-success">Quay lại danh sách</a>
                  </div>
              </div>
         </form>

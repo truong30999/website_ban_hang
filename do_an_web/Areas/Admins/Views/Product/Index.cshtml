@@ -7,32 +7,37 @@
 
 <div class="row">
    <div class="col-6">
-        <h2 class="text-info">Product List</h2>
+        <h2 class="text-info">Danh sách sản phẩm</h2>
    </div>
 <div class="col-6 text-right">
-    <a asp-action="Create" class="btn btn-info" ><i class="fas fa-plus"></i>&nbsp; Add New Product</a>
+    <a asp-action="Create" class="btn btn-info" ><i class="fas fa-plus"></i>&nbsp; Thêm sản phẩm mới</a>
 </div>
 </div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Product Name")
+                @Html.DisplayName("Tên sản phẩm")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Detail)
+                @*@Html.DisplayNameFor(model => model.Detail)*@
+                @Html.DisplayName("Chi tiết")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @*@Html.DisplayNameFor(model => model.Price)*@
+                @Html.DisplayName("Giá")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Category)
+                @*@Html.DisplayNameFor(model => model.Category)*@
+                @Html.DisplayName("Loại sản phẩm")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Amount)
+                @*@Html.DisplayNameFor(model => model.Amount)*@
+                @Html.DisplayName("Số lượng")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ViewNumber)
+                @*@Html.DisplayNameFor(model => model.ViewNumber)*@
+                @Html.DisplayName("Lượt xem")
             </th>
 
             <th></th>
