@@ -89,23 +89,24 @@ namespace do_an_web.Areas.Identity.Pages.Account
                 
                  if (result.Succeeded)
                 {
-                    //var user = await _userManager.FindByEmailAsync(Input.Email);
-                    
-                    //// Get the roles for the user
-                    //var roles = await _userManager.GetRolesAsync(user);
-                    //var includesrole = roles.Contains("Super Admin"); //Check role of the user
-                    //if (includesrole)
-                    //{
-                    //    _logger.LogInformation("User logged in.");
-                    //    return RedirectToAction("Index", "Product", new { Areas = "Admins" });
-                    //}
-                    //else
-                    //{
-                    //    _logger.LogInformation("User logged in.");
-                    //    return LocalRedirect(returnUrl);
-                    //}
-                    _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    var user = await _userManager.FindByEmailAsync(Input.Email);
+
+                    // Get the roles for the user
+                    var roles = await _userManager.GetRolesAsync(user);
+                    var includesrole = roles.Contains("Super Admin"); //Check role of the user
+                    if (includesrole)
+                    {
+                        _logger.LogInformation("User logged in.");
+
+                        return RedirectToAction("Index", "Category", new { area = "Admins" });
+                    }
+                    else
+                    {
+                        _logger.LogInformation("User logged in.");
+                        return LocalRedirect(returnUrl);
+                    }
+                    //_logger.LogInformation("User logged in.");
+                    //return LocalRedirect(returnUrl);
 
 
 
