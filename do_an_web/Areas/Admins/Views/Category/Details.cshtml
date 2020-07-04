@@ -4,42 +4,45 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>Chi Tiết</h1>
 
 <div>
-    <h4>Category</h4>
+    <h3>Loại sản phẩm</h3>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+            @*@Html.DisplayNameFor(model => model.Name)*@
+            <h5>Tên:</h5>
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10" style="padding-top: 10px">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Detail)
+        <dt class="col-sm-2" style="padding-top: 10px">
+            @*@Html.DisplayNameFor(model => model.Detail)*@
+            <h5>Chi tiết:</h5>
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-10" style="padding-top: 10px">
             @Html.DisplayFor(model => model.Detail)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
+        <dt class="col-sm-2" style="padding-top: 10px">
+            @*@Html.DisplayNameFor(model => model.Status)*@
+            <h5>Tình trạng:</h5>
         </dt>
         @if (Model.Status == 1)
         {
-            <dd class="col-sm-10">
-                @Html.DisplayName("Stocking")
+            <dd class="col-sm-10" style="padding-top: 20px">
+                @Html.DisplayName("Đang kinh doanh")
             </dd>
         }
         else
         {
             <dd class="col-sm-10">
-                @Html.DisplayName("Out of Stock")
+                @Html.DisplayName("Ngừng kinh doanh")
             </dd>
         }
     </dl>
 </div>
 <div>
-    <a class="btn btn-primary"  asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a class="btn btn-danger"  asp-action="Index">Back to List</a>
+    <a class="btn btn-success"  asp-action="Edit" asp-route-id="@Model.Id">Chỉnh sửa</a> |
+    <a class="btn btn-danger"  asp-action="Index">Quay lại danh sách</a>
 </div>
