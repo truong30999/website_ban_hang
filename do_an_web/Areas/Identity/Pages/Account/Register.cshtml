@@ -228,41 +228,41 @@
     <div class="container-login100">
         <div class="wrap-login100">
             <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h4>Create a new account.</h4>
+                <h4>Tạo tài khoản mới</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.FirstName"></label>
+                    <label asp-for="Input.FirstName">Tên</label>
                     <input asp-for="Input.FirstName" class="form-control" />
                     <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.LastName"></label>
+                    <label asp-for="Input.LastName">Họ</label>
                     <input asp-for="Input.LastName" class="form-control" />
                     <span asp-validation-for="Input.LastName" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Email"></label>
+                    <label asp-for="Input.Email">Email</label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.AddressLine"></label>
+                    <label asp-for="Input.AddressLine">Địa chỉ</label>
                     <input asp-for="Input.AddressLine" class="form-control" />
                     <span asp-validation-for="Input.AddressLine" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.PhoneNumber"></label>
+                    <label asp-for="Input.PhoneNumber">Số điện thoại</label>
                     <input asp-for="Input.PhoneNumber" class="form-control" />
                     <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password"></label>
+                    <label asp-for="Input.Password">Mật khẩu</label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.PasswordConfirmation"></label>
+                    <label asp-for="Input.PasswordConfirmation">Nhập lại mật khẩu</label>
                     <input asp-for="Input.PasswordConfirmation" class="form-control" />
                     <span asp-validation-for="Input.PasswordConfirmation" class="text-danger"></span>
                 </div>
@@ -270,7 +270,7 @@
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
                         <button type="submit" class="login100-form-btn">
-                            Register
+                            Đăng kí
                         </button>
                     </div>
                 </div>
