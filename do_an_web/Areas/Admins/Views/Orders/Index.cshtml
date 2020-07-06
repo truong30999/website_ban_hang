@@ -4,13 +4,13 @@
 
 <form method="get">
     <br />
-    <h2 class="text-info">Order List</h2>
+    <h2 class="text-info">Danh sách đặt hàng</h2>
     <br />
     <div class="container" style="height:150px; width:1111px ; background-color:aliceblue  ">
         <div class="col-12">
             <div class="row" style="padding-top:10px">
                 <div class="col-2">
-                    Customer Name
+                    Tên khách hàng
                 </div>
                 <div class="col-3">
                     @Html.Editor("searchName", new { htmlAttribute = new { @class = "form-control" } })
@@ -27,7 +27,7 @@
             </div>
             <div class="row" style="padding-top:10px">
                 <div class="col-2">
-                    Phone Number
+                    Số điện thoại
                 </div>
                 <div class="col-3">
                     @Html.Editor("searchPhone", new { htmlAttribute = new { @class = "form-control" } })
@@ -36,7 +36,7 @@
 
                 </div>
                 <div class="col-1">
-                    Date Order
+                    Ngày đặt hàng
                 </div>
                 <div class="col-4">
                     @Html.Editor("searchDate", new { htmlAttribute = new { @class = "form-control", @id = "datepicker" } })
@@ -49,7 +49,7 @@
 
                 <div class="col-4">
                     <button type="submit" value="submit" name="Search" class="btn btn-primary form-control">
-                        <i class="fas fa-search"></i> Search
+                        <i class="fas fa-search"></i> Tìm kiếm
                     </button>
                 </div>
             </div>
@@ -60,19 +60,24 @@
         <table class="table table-striped border" cellspacing="1px">
             <tr class="table-info">
                 <th>
-                    @Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Name)
+                    @*@Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Name)*@
+                    @Html.DisplayName("Tên")
                 </th>
                 <th>
-                    @Html.DisplayNameFor(m => m.Orders.FirstOrDefault().DateOrder)
+                    @*@Html.DisplayNameFor(m => m.Orders.FirstOrDefault().DateOrder)*@
+                    @Html.DisplayName("Ngày đặt hàng")
                 </th>
                 <th>
-                    @Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Email)
+                    @*@Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Email)*@
+                    @Html.DisplayName("Email")
                 </th>
                 <th>
-                    @Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Phone)
+                    @*@Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Phone)*@
+                    @Html.DisplayName("Số điện thoại")
                 </th>
                 <th>
-                    @Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Status)
+                    @*@Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Status)*@
+                    @Html.DisplayName("Tình trạng")
                 </th>
                 <th></th>
             </tr>
@@ -94,14 +99,14 @@
                     @if (item.Status == 0)
                     {
                         <th class="text-danger">
-                            @Html.DisplayName("Unpaid")
+                            @Html.DisplayName("Chưa thanh toán")
                             <partial name="_TableButtonPartial" model="item.Id" />
                         </th>
                     }
                     else
                     {
                         <th class="text-success">
-                            @Html.DisplayName("Paid")
+                            @Html.DisplayName("Đã thanh toán")
                             <partial name="_TableButtonPartial" model="item.Id" />
                         </th>
                     }
@@ -112,7 +117,7 @@
         </table>
     </div>
     <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn border" page-class-normal="btn btn-default active"
-         page-class-selected="btn btn-primary active" class="btn-group m-1 "></div>
+         page-class-selected="btn btn-success active" class="btn-group m-1 "></div>
 
 </form>
 @section Scripts

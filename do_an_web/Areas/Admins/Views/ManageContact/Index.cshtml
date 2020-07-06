@@ -6,20 +6,23 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1 class="text-info">List Contact</h1>
+<h1 class="text-info">Danh sách liên lạc</h1>
 
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @*@Html.DisplayNameFor(model => model.Name)*@
+                @Html.DisplayName("Tên")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email)
+                @*@Html.DisplayNameFor(model => model.Email)*@
+                @Html.DisplayName("Email")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Status)
+                @*@Html.DisplayNameFor(model => model.Status)*@
+                @Html.DisplayName("Tình trạng")
             </th>
             <th></th>
         </tr>
@@ -37,19 +40,19 @@
                 @if (item.Status == 0)
                 {
                     <td class="text-danger">
-                        @Html.DisplayName("Not Seen")
+                        @Html.DisplayName("Chưa xem")
                     </td>
                 }
                 else
                 {
                     <td class="text-success">
-                        @Html.DisplayName("Seen")
+                        @Html.DisplayName("Đã xem")
                     </td>
                 }
 
                 <td>
-                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.Id">Chi tiết</a> |
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Xóa</a>
                 </td>
             </tr>
         }
