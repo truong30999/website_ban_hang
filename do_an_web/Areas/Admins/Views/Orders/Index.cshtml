@@ -98,7 +98,7 @@
                     <th>
                         @Html.DisplayFor(m => item.Phone)
                     </th>
-                    @if (item.Status == 0)
+                    @if (item.Status == false)
                     {
                         <th class="text-danger">
                             @Html.DisplayName("Chưa xác nhận")
