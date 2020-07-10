@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -49,23 +49,24 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Chưa nhập email.")]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "Chưa nhập mật khẩu.")]
+            [StringLength(100, ErrorMessage = "{0} có ít nhất {2} and nhiều nhất {1} ký tự.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
+            [Required(ErrorMessage = "Chưa nhập mật khẩu xác nhận.")]
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "Mật Khẩu và mật khẩu xác nhận không khớp.")]
             public string ConfirmPassword { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Chưa nhập tên.")]
             public string Name { get; set; }
             [Required]
             [Display(Name = "Phone Number")]
@@ -140,7 +141,7 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     //return LocalRedirect(returnUrl);
-                    return RedirectToAction("Index", "Home", new { area = "Customer" });
+                    return RedirectToAction("Index", "Product", new { area = "Admins" });
                 }
                 foreach (var error in result.Errors)
                 {

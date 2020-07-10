@@ -48,11 +48,11 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Chưa nhập email.")]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Chưa nhập mật khẩu.")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
@@ -93,12 +93,19 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
                     // Get the roles for the user
                     var roles = await _userManager.GetRolesAsync(user);
-                    var includesrole = roles.Contains("Super Admin"); //Check role of the user
+                    var includesrole = roles.Contains("Super Admin");
+                    var includesrole2 = roles.Contains("Super Admin");//Check role of the user
                     if (includesrole)
                     {
                         _logger.LogInformation("User logged in.");
 
                         return RedirectToAction("Index", "Product", new { area = "Admins" });
+                    }
+                    else if (includesrole2)
+                    {
+                        _logger.LogInformation("User logged in.");
+
+                        return RedirectToAction("Index", "Orders", new { area = "Admins" });
                     }
                     else
                     {
