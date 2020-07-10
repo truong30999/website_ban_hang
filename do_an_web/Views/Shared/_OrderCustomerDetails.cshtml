@@ -1,12 +1,12 @@
 ﻿@model do_an_web.Models.Order
 
-<h4 class="text-success">Order Details</h4>
+<h4 class="text-success">Chi tiết đơn hàng</h4>
 
 <div style="height:100px; background-color:aliceblue" class="container border">
     <div class="col-12">
         <div class="row" style="padding-top:10px">
             <div class="col-2">
-                Full Name
+                Họ và tên
             </div>
             <div class="col-3">
                 <input asp-for="@Model.Name" readonly class="form-control" />
@@ -25,7 +25,7 @@
     <div class="col-12">
         <div class="row" style="padding-top:10px">
             <div class="col-2">
-                Phone Number
+                Số điện thoại
             </div>
             <div class="col-3">
                 <input asp-for="@Model.Phone" readonly class="form-control" />
@@ -34,7 +34,7 @@
 
             </div>
             <div class="col-1">
-                Address
+                Địa chỉ
             </div>
             <div class="col-4">
                 <input asp-for="@Model.Address" readonly class="form-control" />

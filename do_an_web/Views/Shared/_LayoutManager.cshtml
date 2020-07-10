@@ -1,4 +1,8 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@using do_an_web.Extensions
+@using do_an_web.Utility
+
+@inject IHttpContextAccessor HttpContextAccessor
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,11 +40,11 @@
         <!-- Main Header -->
         <header class="main-header">
             <!-- Logo -->
-            <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="logo" style="padding-bottom:60px">
+            <a asp-area="Admins" asp-controller="Product" asp-action="Index" class="logo" style="padding-bottom:60px">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>AP</b>T</span>
+                <span class="logo-mini"><b>QL</b>T</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Admin Page</b></span>
+                <span class="logo-lg"><b>Trang quản lý</b></span>
             </a>
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -71,7 +75,7 @@
                                 <li class="user-body">
                                     <div class="row">
                                         <div class="col-xs-4 text-center">
-                                            <a href="#">Account</a>
+                                            <a href="#">Tài khoản</a>
                                         </div>
                                     </div>
                                     <!-- /.row -->
@@ -79,13 +83,13 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" class="btn btn-default btn-flat">Profile</a>
+                                        <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" class="btn btn-default btn-flat">Thông tin</a>
                                     </div>
                                     <div class="pull-right">
                                         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                            <button type="submit" class="btn btn-default btn-flat">Logout </button>
+                                            <button type="submit" class="btn btn-default btn-flat">Đăng suất </button>
                                         </form>
-                                    </div> 
+                                    </div>
                                 </li>
                             </ul>
                         </li>
@@ -96,43 +100,62 @@
         <!-- Left side column. contains the logo and sidebar -->
         <aside class="main-sidebar">
             <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">Management</li>
-                    <!-- Optionally, you can add icons to the links -->
-                  
-                    <li class="active"><a asp-area="Admin" asp-controller="AdminUsers" asp-action="Index"><i class="fa fa-link"></i> <span>Admin User</span></a></li>
-                    <li class="active"><a asp-area="Admin" asp-controller="Products" asp-action="Index"><i class="fa fa-link"></i> <span>Product</span></a></li>                    
-                    <li class="active"><a asp-area="Admin" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Order</span></a></li>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-link"></i> <span>Customer Management</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a a asp-area="Admin" asp-controller="Customers" asp-action="Index">Customer List</a></li>
-                            <li><a asp-area="Admin" asp-controller="Orders" asp-action="Index">Order</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
+            @if (User.IsInRole(SD.SuperAdminEndUser))
+            {
+                <section class="sidebar">
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li class="header">Quản lý</li>
+                        <!-- Optionally, you can add icons to the links -->
+
+                        <li class="active"><a asp-area="Admins" asp-controller="AdminUsers" asp-action="Index"><i class="fa fa-link"></i> <span>Tài khoản quản lý</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Category" asp-action="Index"><i class="fa fa-link"></i> <span>Loại sản phẩm</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Product" asp-action="Index"><i class="fa fa-link"></i> <span>Sản phẩm</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Đặt hàng</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="ManageContact" asp-action="Index"><i class="fa fa-link"></i> <span>Liên hệ</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="ManageNew" asp-action="Index"><i class="fa fa-link"></i> <span>Tin tức</span></a></li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-link"></i> <span>Customer Management</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a a asp-area="Admins" asp-controller="User" asp-action="Index">Customer List</a></li>
+                                <li><a asp-area="Admins" asp-controller="Orders" asp-action="Index">Order</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            }
+            @if (User.IsInRole(SD.AdminEndUser))
+            {
+                <section class="sidebar">
+                    <ul class="sidebar-menu" data-widget="tree">
+                        <li class="header">Quản lý</li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Category" asp-action="Index"><i class="fa fa-link"></i> <span>Loại sản phẩm</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Product" asp-action="Index"><i class="fa fa-link"></i> <span>Sản phẩm</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Đặt hàng</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="ManageNew" asp-action="Index"><i class="fa fa-link"></i> <span>Tin tức</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="ManageContact" asp-action="Index"><i class="fa fa-link"></i> <span>Liên hệ</span></a></li>
+
+
+                    </ul>
+                </section>
+            }
             <!-- /.sidebar -->
         </aside>
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
+        <div class="content-wrapper"style="padding-left:10px">
             <!-- Content Header (Page header) -->
             @RenderBody()
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
         <!-- Main Footer -->
-        <footer class="main-footer">
-            <!-- Default to the left -->
-        </footer>
+        
     </div>
-   
+
     <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="~/dist/js/adminlte.min.js"></script>

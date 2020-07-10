@@ -140,7 +140,7 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
                     //await _signInManager.SignInAsync(user, isPersistent: false);
                     //return LocalRedirect(returnUrl);
-                    return RedirectToAction("Index", "Home", new { area = "Customer" });
+                    return RedirectToAction("Index", "Product", new { area = "Admins" });
                 }
                 foreach (var error in result.Errors)
                 {

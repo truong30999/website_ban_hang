@@ -10,21 +10,21 @@
                     <li data-target="#demo" data-slide-to="2"></li>
                 </ul>
 
-                <div class="carousel-inner">
+                <div class="carousel-inner" style="height:400px">
                     <div class="carousel-item active">
                         <div class="col-sm-12">
-                            <img src="~/images/ProductImage/sell1.jpg" />
+                            <img src="~/images/ProductImage/sell1.jpg" style="height:400px;width:1200px" />
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="col-sm-12">
-                            <img src="~/images/ProductImage/sell3.jpg" />
+                            <img src="~/images/ProductImage/sell3.jpg"style="height:400px;width:1200px"  />
 
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="col-sm-12">
-                            <img src="~/images/ProductImage/sell2.png" />
+                            <img src="~/images/ProductImage/sell2.png"style="height:400px;width:1300px"  />
 
                         </div>
                     </div>
@@ -95,14 +95,14 @@
                                     <h3>@product.Product_Name</h3>
                                     <h2>@product.Price.ToString("N0") VND</h2>
                                     <div><i>Lượt xem: @product.ViewNumber</i></div>
-                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-search " asp-route-id="@product.Id"> View Details</a>
+                                    <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-search " asp-route-id="@product.Id"> Xem chi tiết</a>
                                 </div>
                                 <div class="product-overlay">
                                     <div class="overlay-content">
                                         <h3>@product.Product_Name</h3>
                                         <h2>@product.Price.ToString("N0") VND</h2>
                                         <div><i>Lượt xem: @product.ViewNumber</i></div>
-                                        <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-search " asp-route-id="@product.Id"> View Details</a>
+                                        <a asp-action="Details" asp-controller="Home" class="btn btn-default ; fa fa-search " asp-route-id="@product.Id"> Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>

@@ -4,6 +4,7 @@
 @using do_an_web.Utility
 @{
     ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
 <br />
@@ -84,10 +85,10 @@
             <div class="col-8 text-info">
                 @if (Model.Order.Status == 1)
                 {
-                    @Html.DisplayName("Đã thanh toán")
+                    @Html.DisplayName("Đã xác nhận")
                 }
                 else
-                { @Html.DisplayName("Chưa thanh toán")}
+                { @Html.DisplayName("Chưa xác nhận")}
             </div>
         </div>
 

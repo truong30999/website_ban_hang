@@ -4,6 +4,7 @@
 @using do_an_web.Utility
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
 <br />
@@ -88,7 +89,7 @@
                 </div>
                 <span asp-validation-for="Order.Status" class="text-danger"></span>
                 <div class="col-5">
-                    <h6 style="padding-top:5px" class="text-info">1-Đã thanh toán  / 0-Chưa thanh toán</h6>
+                    <h6 style="padding-top:5px" class="text-info">1-Đã xác nhận  / 0-Chưa xác nhận</h6>
                 </div>
             </div>
 

@@ -94,11 +94,18 @@ namespace do_an_web.Areas.Identity.Pages.Account
                     // Get the roles for the user
                     var roles = await _userManager.GetRolesAsync(user);
                     var includesrole = roles.Contains("Super Admin"); //Check role of the user
-                    if (includesrole)
+                    var includesrole2 = roles.Contains("Admin");
+                    if (includesrole )
                     {
                         _logger.LogInformation("User logged in.");
 
-                        return RedirectToAction("Index", "Category", new { area = "Admins" });
+                        return RedirectToAction("Index", "Product", new { area = "Admins" });
+                    }
+                    else if (includesrole2)
+                    {
+                        _logger.LogInformation("User logged in.");
+
+                        return RedirectToAction("Index", "Orders", new { area = "Admins" });
                     }
                     else
                     {
