@@ -48,11 +48,11 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "Chưa nhập email.")]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "Chưa nhập mật khẩu.")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
@@ -96,6 +96,7 @@ namespace do_an_web.Areas.Identity.Pages.Account
                     var includesrole = roles.Contains("Super Admin"); //Check role of the user
                     var includesrole2 = roles.Contains("Admin");
                     if (includesrole )
+
                     {
                         _logger.LogInformation("User logged in.");
 

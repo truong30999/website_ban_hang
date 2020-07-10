@@ -51,34 +51,34 @@ namespace do_an_web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "Password is required")]
+            [Required(ErrorMessage = "Chưa nhập mật khẩu.")]
             [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,12}$",
-           ErrorMessage = @"Password must be at least 4 characters, 
-no more than 12 characters, and must include at least one upper case letter, 
-one lower case letter, and one numeric digit")]
+           ErrorMessage = @"Mật khẩu phải có hơn 4 ký tự,
+không nhiều hơn 12 ký tự và phải bao gồm ít nhất một chữ cái viết hoa,
+một chữ cái viết thường và một chữ số")]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
-            [Required(ErrorMessage = "Confirm password")]
+            [Required(ErrorMessage = "Chưa nhập xác nhận mật khẩu.")]
             [DataType(DataType.Password)]
-            [Compare("Password", ErrorMessage = "Passwords did not match")]
+            [Compare("Password", ErrorMessage = "Mật khẩu và mật khẩu xác nhận không khớp.")]
             [Display(Name = "Confirm password")]
             public string PasswordConfirmation { get; set; }
 
-            [Required(ErrorMessage = "Email is required")]
-            [RegularExpression(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$", ErrorMessage = "Enter valid email")]
+            [Required(ErrorMessage = "Chưa nhập email")]
+            [RegularExpression(@"^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$", ErrorMessage = "Email không hợp lệ.")]
             [DataType(DataType.EmailAddress)]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "First name is required")]
-            [StringLength(255, ErrorMessage = "First name must have from 2 to 255 characters", MinimumLength = 2)]
+            [Required(ErrorMessage = "Chưa nhập tên.")]
+            [StringLength(255, ErrorMessage = "Tên chứa từ 2 đến 255 kí tự.", MinimumLength = 2)]
             [Display(Name = "First Name")]
             public string FirstName { get; set; }
 
-            [Required(ErrorMessage = "Last name is required")]
-            [StringLength(255, ErrorMessage = "Last name must have from 2 to 255 characters", MinimumLength = 2)]
+            [Required(ErrorMessage = "Chưa nhập họ.")]
+            [StringLength(255, ErrorMessage = "Họ chứa từ 2 đến 255 kí tự.", MinimumLength = 2)]
             [Display(Name = "Last Name")]
             public string LastName { get; set; }     
 
