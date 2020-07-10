@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace do_an_web.Areas.Admins.Controllers
 {
-    [Authorize(Roles =SD.SuperAdminEndUser)]
+    [Authorize(Roles = SD.AdminEndUser + "," + SD.SuperAdminEndUser)]
     [Area("Admins")]
     public class AdminUsersController : Controller
     {

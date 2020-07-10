@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Admin Panel</title>
+    <title>Quản lý</title>
     <!-- Css Core-->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="pull-right">
                                         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                            <button type="submit" class="btn btn-default btn-flat">Đăng suất </button>
+                                            <button type="submit" class="btn btn-default btn-flat">Đăng xuất </button>
                                         </form>
                                     </div>
                                 </li>
@@ -111,21 +111,11 @@
                         <li class="active"><a asp-area="Admins" asp-controller="AdminUsers" asp-action="Index"><i class="fa fa-link"></i> <span>Tài khoản quản lý</span></a></li>
                         <li class="active"><a asp-area="Admins" asp-controller="Category" asp-action="Index"><i class="fa fa-link"></i> <span>Loại sản phẩm</span></a></li>
                         <li class="active"><a asp-area="Admins" asp-controller="Product" asp-action="Index"><i class="fa fa-link"></i> <span>Sản phẩm</span></a></li>
-                        <li class="active"><a asp-area="Admins" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Đặt hàng</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Đơn hàng</span></a></li>
                         <li class="active"><a asp-area="Admins" asp-controller="ManageContact" asp-action="Index"><i class="fa fa-link"></i> <span>Liên hệ</span></a></li>
                         <li class="active"><a asp-area="Admins" asp-controller="ManageNew" asp-action="Index"><i class="fa fa-link"></i> <span>Tin tức</span></a></li>
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="fa fa-link"></i> <span>Customer Management</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a a asp-area="Admins" asp-controller="User" asp-action="Index">Customer List</a></li>
-                                <li><a asp-area="Admins" asp-controller="Orders" asp-action="Index">Order</a></li>
-                            </ul>
-                        </li>
+                        <li class="active"><a asp-area="Admins" asp-controller="User" asp-action="Index"><i class="fa fa-link"></i> <span>Khách Hàng</span></a></li>
+                       
                     </ul>
                 </section>
             }
@@ -136,7 +126,7 @@
                         <li class="header">Quản lý</li>
                         <li class="active"><a asp-area="Admins" asp-controller="Category" asp-action="Index"><i class="fa fa-link"></i> <span>Loại sản phẩm</span></a></li>
                         <li class="active"><a asp-area="Admins" asp-controller="Product" asp-action="Index"><i class="fa fa-link"></i> <span>Sản phẩm</span></a></li>
-                        <li class="active"><a asp-area="Admins" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Đặt hàng</span></a></li>
+                        <li class="active"><a asp-area="Admins" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Đơn hàng</span></a></li>
                         <li class="active"><a asp-area="Admins" asp-controller="ManageNew" asp-action="Index"><i class="fa fa-link"></i> <span>Tin tức</span></a></li>
                         <li class="active"><a asp-area="Admins" asp-controller="ManageContact" asp-action="Index"><i class="fa fa-link"></i> <span>Liên hệ</span></a></li>
 
@@ -147,7 +137,7 @@
       
         </aside>
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper"style="padding-left:10px">
+        <div class="content-wrapper"style="padding-left:10px;padding-right:10px">
             <!-- Content Header (Page header) -->
             @RenderBody()
             <!-- /.content -->

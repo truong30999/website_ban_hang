@@ -139,7 +139,7 @@ namespace do_an_web.Areas.Admins.Controllers
                 orderFromDb.DateOrder = objOrderVM.Order.DateOrder;
                 orderFromDb.TotalPrice = objOrderVM.Order.TotalPrice;
                 orderFromDb.Status = objOrderVM.Order.Status;
-
+                orderFromDb.StatusDelivery = objOrderVM.Order.StatusDelivery;
                 _db.SaveChanges();
                 return RedirectToAction(nameof(Index));
             }

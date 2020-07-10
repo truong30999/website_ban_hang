@@ -82,26 +82,33 @@
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Order.Status">Tình trạng</label>
+                    <label asp-for="Order.Status">Tình trạng thanh toán</label>
                 </div>
                 <div class="col-4">
                     <input asp-for="Order.Status" id="checkbox1" type="checkbox" class="checkbox" />
                     <label for="checkbox1"> Thanh toán</label>
                 </div>
+
                 <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
-
-
             </div>
+           
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="Order.StatusDelivery">Tình trạng giao hang</label>
+                    <label asp-for="Order.StatusDelivery">Tình trạng giao hàng</label>
                 </div>
 
-                <div class="col-4">
-                    <input asp-for="Order.StatusDelivery" id="checkbox2" type="checkbox" class="checkbox" />
-                    <label for="checkbox2"> Đang Giao</label>
-                    <input asp-for="Order.StatusDelivery" id="checkbox3" type="checkbox" class="checkbox" />
-                    <label for="checkbox3"> Đã Giao</label>
+                <div class="col-8">
+                    <div class="form-group row">
+                    <div class="col-6">
+                        <input name="Order.StatusDelivery" id="checkbox2" type="checkbox" class="checkbox" />
+                        <label for="checkbox2"> Đang Giao</label>
+                    </div>
+                    <div class="col-6">
+                        <input name="Order.StatusDelivery" id="checkbox3" type="checkbox" class="checkbox" />
+                        <label for="checkbox3"> Đã Giao</label>
+                    </div>
+                </div>
+                    
                 </div>
                 <span asp-validation-for="Order.TotalPrice" class="text-danger"></span>
             </div>
@@ -116,7 +123,7 @@
             <partial name="~/Views/Shared/_OrderProductDetails.cshtml" model="Model.Products" />
         </div>
     </div>
-            </form>
+</form>
 @section Scripts
 {
     <script>

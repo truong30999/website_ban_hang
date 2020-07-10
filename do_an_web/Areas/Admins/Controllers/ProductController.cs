@@ -16,7 +16,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace do_an_web.Controllers
 {
-    [Authorize(Roles = SD.SuperAdminEndUser)]
+    [Authorize(Roles = SD.AdminEndUser + "," + SD.SuperAdminEndUser)]
     [Area("Admins")]
     public class ProductController : Controller
     {

@@ -3,13 +3,13 @@
     ViewData["Title"] = "Index";
 }
 
-<form method="post" >
+<form method="post">
     <br />
     <h2 class="text-info">Giỏ hàng của bạn</h2>
     <br />
-    @if(Model.Products.Count()>0)
+    @if (Model.Products.Count() > 0)
     {
-        
+
         <div class="container border border-secondary rounded" style="padding:15px">
             <div class="row">
                 <div class=" col-8" style="border-right:1px solid #bbb9b9;">
@@ -50,7 +50,7 @@
                                 </td>
                             </tr>
                         }
-                    </table> 
+                    </table>
                 </div>
                 <div class="col-4" style="padding-left=" 30px">
                     @{
@@ -94,7 +94,7 @@
                             <label>Ngày đặt :</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
-                            <input asp-for="Order.DateOrder" value="@DateTime.Now" type="text" class="form-control"  readonly />
+                            <input asp-for="Order.DateOrder" value="@DateTime.Now" type="text" class="form-control" readonly />
                             <span asp-validation-for="Order.DateOrder" class="text-danger"></span>
                         </div>
                         <div class="col-12">
@@ -132,10 +132,10 @@
 @section Scripts
 {
     <script>
-         $( function() {
-             $("#datepicker").datepicker({
-             
-             });
-  } );
+        $(function () {
+            $("#datepicker").datepicker({
+
+            });
+        });
     </script>
 }

@@ -55,25 +55,30 @@ namespace do_an_web.Areas.Customer.Controllers
             List<int> lstOrderDetail = HttpContext.Session.Get<List<int>>("ssOrderDetail");
             Order order = shoppingCartVM.Order;
             order.Status = false;
-            order.StatusDelivery =false; 
+            order.StatusDelivery = 0;
+            float totalPrice = 0;
             _db.Orders.Add(order);
             _db.SaveChanges();
 
             int orderId = order.Id;
-            foreach(int orderDetailId in lstOrderDetail)
+            foreach (int orderDetailId in lstOrderDetail)
             {
                 // OrderDetail orderDetail = new OrderDetail { ProductId = productId, OrderId = orderId, Status=1, Amount=1 };
                 OrderDetail orderDetail = _db.OrderDetails.Where(a => a.Id == orderDetailId).FirstOrDefault();
                 orderDetail.OrderId = orderId;
+                totalPrice = totalPrice + orderDetail.Amount * orderDetail.Product.Price;
                 orderDetail.Status = 1;
                 _db.OrderDetails.Update(orderDetail);
             }
+            order = _db.Orders.Where(a => a.Id == orderId).FirstOrDefault();
+            order.TotalPrice = totalPrice;
+            _db.Orders.Update(order);
             _db.SaveChanges();
             lstOrderDetail = new List<int>();
             lstCartItems = new List<int>();
             HttpContext.Session.Set("ssOrderCart", lstOrderDetail);
             HttpContext.Session.Set("ssShoppingCart", lstCartItems);
-            return RedirectToAction("OrderComfirmation", "ShoppingCart", new { Id = orderId }) ;
+            return RedirectToAction("OrderComfirmation", "ShoppingCart", new { Id = orderId });
 
         }
         public IActionResult Remove(int Id)

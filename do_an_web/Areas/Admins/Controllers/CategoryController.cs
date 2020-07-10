@@ -11,7 +11,7 @@ using do_an_web.Utility;
 
 namespace do_an_web.Areas.Admin.Controllers
 {
-    [Authorize(Roles = SD.SuperAdminEndUser)]
+    [Authorize(Roles = SD.AdminEndUser + "," + SD.SuperAdminEndUser)]
     [Area("Admins")]
     public class CategoryController : Controller
     {

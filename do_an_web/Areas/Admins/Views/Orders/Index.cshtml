@@ -79,41 +79,65 @@
                 </th>
                 <th>
                     @*@Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Status)*@
-                    @Html.DisplayName("Tình trạng")
+                    @Html.DisplayName("Tình trạng thanh toán")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Status)*@
+                    @Html.DisplayName("Tình trạng giao hàng")
                 </th>
                 <th></th>
             </tr>
             @foreach (var item in Model.Orders)
             {
-                <tr>
-                    <th>
-                        @Html.DisplayFor(m => item.Name)
-                    </th>
-                    <th>
-                        @Html.DisplayFor(m => item.DateOrder)
-                    </th>
-                    <th>
-                        @Html.DisplayFor(m => item.Email)
-                    </th>
-                    <th>
-                        @Html.DisplayFor(m => item.Phone)
-                    </th>
-                    @if (item.Status == false)
-                    {
-                        <th class="text-danger">
-                            @Html.DisplayName("Chưa xác nhận")
-                            <partial name="_TableButtonPartial" model="item.Id" />
-                        </th>
-                    }
-                    else
-                    {
-                        <th class="text-success">
-                            @Html.DisplayName("Đã xác nhận")
-                            <partial name="_TableButtonPartial" model="item.Id" />
-                        </th>
-                    }
-
-                </tr>
+        <tr>
+            <th>
+                @Html.DisplayFor(m => item.Name)
+            </th>
+            <th>
+                @Html.DisplayFor(m => item.DateOrder)
+            </th>
+            <th>
+                @Html.DisplayFor(m => item.Email)
+            </th>
+            <th>
+                @Html.DisplayFor(m => item.Phone)
+            </th>
+            @if (item.Status == false)
+            {
+                <th class="text-danger">
+                    @Html.DisplayName("Chưa thanh toán ")
+                    
+                </th>
+            }
+            else
+            {
+                <th class="text-success">
+                    @Html.DisplayName("Đã thanh toán")
+                    
+                </th>
+            }
+            @if (item.StatusDelivery == 0)
+            {
+                <th class="text-danger">
+                    @Html.DisplayName("Chưa giao hàng")
+                    <partial name="_TableButtonPartial" model="item.Id" />
+                </th>
+            }
+            @if (item.StatusDelivery == 1)
+            {
+                <th class="text-yellow">
+                    @Html.DisplayName("Đang giao hàng")
+                    <partial name="_TableButtonPartial" model="item.Id" />
+                </th>
+            }
+            @if (item.StatusDelivery == 2)
+            {
+                <th class="text-success">
+                    @Html.DisplayName("Đã giao hàng")
+                    <partial name="_TableButtonPartial" model="item.Id" />
+                </th>
+            }
+        </tr>
             }
 
         </table>

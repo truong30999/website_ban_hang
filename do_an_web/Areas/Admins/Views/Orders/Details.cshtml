@@ -80,15 +80,34 @@
         </div>
         <div class="form-group row">
             <div class="col-4">
-                <label asp-for="Order.Status" class="control-label">Tình trạng</label>
+                <label asp-for="Order.Status" class="control-label">Tình trạng thanh toán</label>
             </div>
             <div class="col-8 text-info">
                 @if (Model.Order.Status == true)
                 {
-                    @Html.DisplayName("Đã xác nhận")
+                    @Html.DisplayName("Đã thanh toán")
                 }
                 else
-                { @Html.DisplayName("Chưa xác nhận")}
+                { @Html.DisplayName("Chưa thanh toán")}
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-4">
+                <label asp-for="Order.StatusDelivery" class="control-label">Tình trạng giao hàng</label>
+            </div>
+            <div class="col-8 text-info">
+                @if (Model.Order.StatusDelivery == 0)
+                {
+                    @Html.DisplayName("Chưa giao hàng")
+                }
+                @if (Model.Order.StatusDelivery == 1)
+                {
+                    @Html.DisplayName("Đang giao hàng")
+                }
+                @if (Model.Order.StatusDelivery == 2)
+                {
+                    @Html.DisplayName("Đã giao hàng")
+                }
             </div>
         </div>
 
