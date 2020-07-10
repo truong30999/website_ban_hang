@@ -33,7 +33,9 @@ namespace do_an_web.Areas.Identity.Pages.Account
             await _signInManager.SignOutAsync();
             _logger.LogInformation("User logged out.");
             List<int> lstCartItems = new List<int>();
+            List<int> lstorderDetailItems = new List<int>();
             HttpContext.Session.Set("ssShoppingCart", lstCartItems);
+            HttpContext.Session.Set("ssOrderDetail", lstorderDetailItems);
 
             if (returnUrl != null)
             {

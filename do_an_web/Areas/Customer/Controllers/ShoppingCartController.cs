@@ -87,7 +87,7 @@ namespace do_an_web.Areas.Customer.Controllers
             _db.Orders.Add(order);
             _db.SaveChanges();
             float totalPrice = 0;
-            Order ord = _db.Orders.Where(a => (a.Email == order.Email && a.Status == false) ).FirstOrDefault();
+            Order ord = _db.Orders.Where(a => a.Id == order.Id).OrderByDescending(a => a.Id).FirstOrDefault();
             int orderId = ord.Id;
             foreach (int orderDetailId in lstOrderDetail)
             {
