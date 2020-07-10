@@ -6,31 +6,35 @@
 <br />
 <div class="row">
     <div class="col-6">
-        <h2 class="text-info">Admin User List</h2>
+        <h2 class="text-info">Danh sách nhân viên</h2>
 
     </div>
     <div class="col-6 text-right">
-        <a asp-area="Identity" asp-page="/Account/RegisterAdmin" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; New Admin User</a>
+        <a asp-area="Identity" asp-page="/Account/RegisterAdmin" class="btn btn-info"><i class="fas fa-plus"></i>&nbsp; Nhân viên mới</a>
     </div>
 </div>
 <br />
 <div>
-    <table class="table table-striped border">
-        <tr class="table-info">
-            <td>
-                @Html.DisplayNameFor(m => m.Name)
-            </td>
-            <td>
-                @Html.DisplayNameFor(m => m.Email)
-            </td>
-            <td>
-                @Html.DisplayNameFor(m => m.PhoneNumber)
-            </td>
-            <td>
-                Disabled
-            </td>
-
-        </tr>
+    <table class="table ">
+        <thead>
+            <tr>
+                <th>
+                    @*@Html.DisplayNameFor(m => m.Name)*@
+                    @Html.DisplayName("Tên")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(m => m.Email)*@
+                    @Html.DisplayName("Email")
+                </th>
+                <th>
+                    @*@Html.DisplayNameFor(m => m.PhoneNumber)*@
+                    @Html.DisplayName("Số điện thoại")
+                </th>
+                <th>
+                    Trạng thái
+                </th>
+            </tr>
+        </thead>
 
             @foreach (var item in Model)
             {
@@ -45,6 +49,13 @@
                         @Html.DisplayFor(m => item.PhoneNumber)
                     </td>
                     <td>
+                        @if (item.LockoutEnd != null && item.LockoutEnd > DateTime.Now)
+                        {
+                            <lable class="text-danger">Đã vô hiệu hóa</lable>
+                        }
+                    </td>
+             
+                    <td>
                         @if (item.LockoutEnd == null || item.LockoutEnd < DateTime.Now)
                         {
                             <a type="button" class="btn btn-success" href="@Url.Action("Edit/"+item.Id).Replace("%2F","/")">
@@ -56,10 +67,7 @@
                         }
                     </td>
                     <td>
-                        @if (item.LockoutEnd != null && item.LockoutEnd > DateTime.Now)
-                        {
-                            <label>Disabled</label>
-                        }
+                       
                     </td>
 
                 </tr>

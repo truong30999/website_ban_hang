@@ -5,7 +5,7 @@
 
 <form method="post" >
     <br />
-    <h2 class="text-info">Your Shopping Cart</h2>
+    <h2 class="text-info">Giỏ hàng của bạn</h2>
     <br />
     @if(Model.Products.Count()>0)
     {
@@ -17,13 +17,13 @@
                         <tr class="table-info">
                             <th style="text-align:center; width:20%"></th>
                             <th style="text-align:center">
-                                <label asp-for="@Model.Products.FirstOrDefault().Product_Name"></label>
+                                <label asp-for="@Model.Products.FirstOrDefault().Product_Name">Tên sản phẩm</label>
                             </th>
                             <th style="text-align:center">
-                                <label asp-for="@Model.Products.FirstOrDefault().Price"></label>
+                                <label asp-for="@Model.Products.FirstOrDefault().Price">Giá</label>
                             </th>
                             <th style="text-align:center">
-                                <label asp-for="@Model.Products.FirstOrDefault().Category.Name"></label>
+                                <label asp-for="@Model.Products.FirstOrDefault().Category.Name">Loại sản phẩm</label>
                             </th>
                             <th style="text-align:center; width:20%"></th>
                         </tr>
@@ -63,14 +63,14 @@
                     }
                     <div class="row">
                         <div class="col-12">
-                            <label>Name :</label>
+                            <label>Tên:</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
                             <input asp-for="Order.Name" value=@User.Identity.Name class="form-control" />
                             <span asp-validation-for="Order.Name" class="text-danger"></span>
                         </div>
                         <div class="col-12">
-                            <label>Phone :</label>
+                            <label>Số điện thoại :</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
                             <input asp-for="Order.Phone" type="text" class="form-control" />
@@ -84,28 +84,28 @@
                             <span asp-validation-for="Order.Email" class="text-danger"></span>
                         </div>
                         <div class="col-12">
-                            <label>Address :</label>
+                            <label>Địa chỉ :</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
                             <input asp-for="Order.Address" class="form-control" />
                             <span asp-validation-for="Order.Address" class="text-danger"></span>
                         </div>
                         <div class="col-12">
-                            <label>Date Order :</label>
+                            <label>Ngày đặt :</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
                             <input asp-for="Order.DateOrder" value="@DateTime.Now" type="text" class="form-control"  readonly />
                             <span asp-validation-for="Order.DateOrder" class="text-danger"></span>
                         </div>
                         <div class="col-12">
-                            <label>Payment Method :</label>
+                            <label>Hình thức thanh toán :</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
                             <input asp-for="Order.PaymentMethod" class="form-control" value="COD" />
                             <span asp-validation-for="Order.PaymentMethod" class="text-danger"></span>
                         </div>
                         <div class="col-12">
-                            <label>Total Price :</label>
+                            <label>Tổng giá :</label>
                         </div>
                         <div class="col-12" style="padding-bottom:15px">
                             <input disabled asp-for="Order.TotalPrice" class="form-control" value="@totalPrice" />
@@ -117,7 +117,7 @@
                         </div>
                         <div class="col-12">
 
-                            <button type="submit" id="btnPlaceOrder" class="btn btn-success" style="width:340px;padding:5px ;margin-bottom: 20px">Buy</button>
+                            <button type="submit" id="btnPlaceOrder" class="btn btn-success" style="width:340px;padding:5px ;margin-bottom: 20px">Mua</button>
                         </div>
                     </div>
                 </div>
@@ -126,7 +126,7 @@
     }
     else
     {
-        <div>No item add to the shopping cart...</div>
+        <div>Không có mục nào được thêm vào giỏ hàng ...</div>
     }
 </form>
 @section Scripts

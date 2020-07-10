@@ -5,13 +5,13 @@
 @inject IHttpContextAccessor HttpContextAccessor
 <br />
 
-<h2 class="text-info">Product Details</h2>
+<h2 class="text-info">Chi tiết sản phẩm</h2>
 <form method="post">
     <div class="p-4 border rounded row">
         <div class="col-8">
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="@Model.Product.Product_Name" class="control-label"></label>
+                    <label asp-for="@Model.Product.Product_Name" class="control-label">Tên sản phẩm</label>
                 </div>
                 <div class=" col-8">
                     <input asp-for="@Model.Product.Product_Name" readonly class="form-control" />
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="@Model.Product.Detail" class="control-label"></label>
+                    <label asp-for="@Model.Product.Detail" class="control-label">Chi tiết</label>
                 </div>
                 <div class="col-8">
                     <input asp-for="@Model.Product.Detail" readonly class="form-control" />
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="@Model.Product.Price" class="control-label"></label>
+                    <label asp-for="@Model.Product.Price" class="control-label">Giá</label>
                 </div>
                 <div class="col-8">
                     <input asp-for="@Model.Product.Price" readonly class="form-control" />
@@ -39,7 +39,7 @@
 
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="@Model.Product.ViewNumber" class="control-label"></label>
+                    <label asp-for="@Model.Product.ViewNumber" class="control-label">Lượt xem</label>
                 </div>
                 <div class=" col-8">
                     <input asp-for="@Model.Product.ViewNumber" class="form-control" readonly />
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="@Model.Product.Category" class="control-label"></label>
+                    <label asp-for="@Model.Product.Category" class="control-label">Loại sản phẩm</label>
                 </div>
                 <div class=" col-8">
                     <input asp-for="@Model.Product.Category.Name" class="form-control" readonly />
@@ -56,7 +56,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-4">
-                    <label asp-for="@Model.count" class="control-label"></label>
+                    <label asp-for="@Model.count" class="control-label">Số lượng</label>
                 </div>
                 <div class=" col-8">
                     <input asp-for="@Model.count" value="1" class="form-control"  />
@@ -78,18 +78,18 @@
                     }
                     @if (isInCart)
                     {
-                        <button type="submit" value="Remove From Cart" asp-action="Remove" asp-route-id="@Model.Product.Id" class="btn btn-danger form-control">Remove From Cart</button>
+                        <button type="submit" value="Remove From Cart" asp-action="Remove" asp-route-id="@Model.Product.Id" class="btn btn-danger form-control">Xóa khỏi giỏ hàng</button>
                     }
                     else
                     {
                         if (User.IsInRole(do_an_web.Utility.SD.Customer))
                         {
-                            <button type="submit" value="Add to Cart" asp-route-id="@Model.Product.Id" asp-route-count="@Model.count" class="btn btn-primary form-control">Add to Cart</button>
+                            <button type="submit" value="Add to Cart" asp-route-id="@Model.Product.Id" asp-route-count="@Model.count" class="btn btn-primary form-control">Thêm vào giỏ hàng</button>
                         }
                         else
                         {
 
-                            <button type="submit" value="Add to Cart" asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary form-control" onclick="notify()">Add to Cart</button>
+                            <button type="submit" value="Add to Cart" asp-area="Identity" asp-page="/Account/Login" class="btn btn-primary form-control" onclick="notify()">Thêm vào giỏ hàng</button>
                         }
                     }
 
@@ -106,7 +106,7 @@
             <br />
             <div class="form-group">
                 <input hidden asp-for="@Model.Product.Id" />
-                <a asp-action="Index" class="btn btn-success">Back to List</a>
+                <a asp-action="Index" class="btn btn-success">Quay lại danh sách</a>
             </div>
        
     </div>

@@ -9,13 +9,13 @@
         <tr class="table-info">
             <th style="text-align:center; width:20%"></th>
             <th style="text-align:center">
-                <label asp-for="@Model.FirstOrDefault().Product_Name"></label>
+                <label asp-for="@Model.FirstOrDefault().Product_Name">Tên sản phẩm</label>
             </th>
             <th style="text-align:center">
-                <label asp-for="@Model.FirstOrDefault().Price"></label>
+                <label asp-for="@Model.FirstOrDefault().Price">Giá</label>
             </th>
             <th style="text-align:center">
-                <label asp-for="@Model.FirstOrDefault().Category.Name"></label>
+                <label asp-for="@Model.FirstOrDefault().Category.Name">Loại sản phẩm</label>
             </th>
             <th style="text-align:center; width:20%"></th>
         </tr>
@@ -45,7 +45,7 @@
 }
 else
 {
-    <div>No item added to the shopping cart...</div>
+<div>Không có mục nào được thêm vào giỏ hàng ...</div>
 }
 
 
