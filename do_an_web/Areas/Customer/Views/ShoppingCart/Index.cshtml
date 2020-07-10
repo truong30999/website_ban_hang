@@ -54,11 +54,8 @@
                 </div>
                 <div class="col-4" style="padding-left=" 30px">
                     @{
-                        float totalPrice = 0;
-                        foreach (var item in Model.Products)
-                        {
-                            totalPrice += item.Price;
-                        }
+                        float totalPrice = ViewBag.totalPrice ;
+                        
 
                     }
                     <div class="row">

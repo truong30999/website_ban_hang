@@ -53,7 +53,9 @@ namespace do_an_web.Controllers
             List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssShoppingCart");
             List<int> lstOrderdetail = HttpContext.Session.Get<List<int>>("ssOrderDetail");
             OrderDetail orderDetail = new OrderDetail() { ProductId = id, Amount = count, Status = 2 };
-            if(lstShoppingCart==null)
+            _db.OrderDetails.Add(orderDetail);
+            _db.SaveChanges();
+            if (lstShoppingCart==null)
             {
                 lstShoppingCart = new List<int>();
             }
@@ -62,9 +64,6 @@ namespace do_an_web.Controllers
                 lstOrderdetail = new List<int>();
             }
             lstShoppingCart.Add(id);
-           
-            _db.OrderDetails.Add(orderDetail);
-            _db.SaveChanges();
             lstOrderdetail.Add(orderDetail.Id);
             HttpContext.Session.Set("ssShoppingCart", lstShoppingCart);
             HttpContext.Session.Set("ssOrderDetail", lstOrderdetail);

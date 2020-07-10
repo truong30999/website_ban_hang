@@ -39,15 +39,16 @@
                 </td>
                 @if (item.Status == 0)
                 {
-                    <td class="text-danger">
-                        @Html.DisplayName("Đã xem")
-                    </td>
+            <td class="text-danger">
+                
+                @Html.DisplayName("Chưa xem")
+            </td>
                 }
                 else
                 {
-                    <td class="text-success">
-                        @Html.DisplayName("Chưa xem")
-                    </td>
+            <td class="text-success">
+                @Html.DisplayName("Đã xem")
+            </td>
                 }
 
                 <td>

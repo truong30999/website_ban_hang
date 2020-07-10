@@ -22,6 +22,17 @@ namespace do_an_web.Areas.Customer.Controllers
         public ShoppingCartController( ApplicationDbContext db)
         {
             _db = db;
+            //List<int> lstOrderDetail = HttpContext.Session.Get<List<int>>("ssOrderDetail");
+            
+            //foreach (int orderDetailId in lstOrderDetail)
+            //{
+            //    // OrderDetail orderDetail = new OrderDetail { ProductId = productId, OrderId = orderId, Status=1, Amount=1 };
+            //    OrderDetail orderDetail = _db.OrderDetails.Where(a => a.Id == orderDetailId).FirstOrDefault();
+               
+            //    totalPrice = totalPrice + orderDetail.Amount * orderDetail.Product.Price;
+            //    orderDetail.Status = 1;
+            //    _db.OrderDetails.Update(orderDetail);
+            //}
             shoppingCartVM = new ShoppingCartViewModel()
             {
                 Products = new List<Product>()
@@ -33,6 +44,23 @@ namespace do_an_web.Areas.Customer.Controllers
         {
            
             List<int> lstShoppingCart = HttpContext.Session.Get<List<int>>("ssShoppingCart");
+           
+            if(lstShoppingCart.Count > 0)
+            {
+                List<int> lstOrderDetail = HttpContext.Session.Get<List<int>>("ssOrderDetail");
+                float totalPrice = 0;
+                foreach (int orderDetailId in lstOrderDetail)
+                {
+                    // OrderDetail orderDetail = new OrderDetail { ProductId = productId, OrderId = orderId, Status=1, Amount=1 };
+                    OrderDetail orderDetail = _db.OrderDetails.Where(a => a.Id == orderDetailId && a.Status == 2).FirstOrDefault();
+                    Product prd = _db.Products.Where(a => a.Id == orderDetail.ProductId).FirstOrDefault();
+                    totalPrice = totalPrice + orderDetail.Amount * prd.Price;
+
+                }
+                ViewBag.totalPrice = totalPrice;
+            }    
+          
+
             if (lstShoppingCart == null)
                 return View(shoppingCartVM);
             if(lstShoppingCart.Count>0)
@@ -56,19 +84,21 @@ namespace do_an_web.Areas.Customer.Controllers
             Order order = shoppingCartVM.Order;
             order.Status = false;
             order.StatusDelivery = 0;
-            float totalPrice = 0;
             _db.Orders.Add(order);
             _db.SaveChanges();
-
-            int orderId = order.Id;
+            float totalPrice = 0;
+            Order ord = _db.Orders.Where(a => (a.Email == order.Email && a.Status == false) ).FirstOrDefault();
+            int orderId = ord.Id;
             foreach (int orderDetailId in lstOrderDetail)
             {
                 // OrderDetail orderDetail = new OrderDetail { ProductId = productId, OrderId = orderId, Status=1, Amount=1 };
-                OrderDetail orderDetail = _db.OrderDetails.Where(a => a.Id == orderDetailId).FirstOrDefault();
+                OrderDetail orderDetail = _db.OrderDetails.Where(a => a.Id == orderDetailId && a.Status == 2 ).FirstOrDefault();
                 orderDetail.OrderId = orderId;
-                totalPrice = totalPrice + orderDetail.Amount * orderDetail.Product.Price;
+                Product prd = _db.Products.Where(a => a.Id == orderDetail.ProductId).FirstOrDefault();
+                totalPrice = totalPrice + orderDetail.Amount * prd.Price ;
                 orderDetail.Status = 1;
                 _db.OrderDetails.Update(orderDetail);
+                _db.SaveChanges();
             }
             order = _db.Orders.Where(a => a.Id == orderId).FirstOrDefault();
             order.TotalPrice = totalPrice;
@@ -107,5 +137,6 @@ namespace do_an_web.Areas.Customer.Controllers
             }
             return View(shoppingCartVM);
         }
+        
     }
 }
