@@ -17,8 +17,8 @@ namespace do_an_web.Models
         public DateTime DateOrder { get; set; }//
         public float TotalPrice { get; set; }//
         public string PaymentMethod { get; set; }//
-        public int Status { get; set; }//
-
+        public bool Status { get; set; }//
+        public bool StatusDelivery { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

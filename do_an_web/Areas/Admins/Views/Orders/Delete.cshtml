@@ -84,7 +84,7 @@
                     <label asp-for="Order.Status" class="control-label">Tình trạng</label>
                 </div>
                 <div class="col-8 text-info">
-                    @if (Model.Order.Status == 1)
+                    @if (Model.Order.Status == true)
                     {
                         @Html.DisplayName("Đã thanh toán")
                     }

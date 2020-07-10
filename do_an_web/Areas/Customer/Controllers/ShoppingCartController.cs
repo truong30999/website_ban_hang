@@ -54,7 +54,8 @@ namespace do_an_web.Areas.Customer.Controllers
             List<int> lstCartItems = HttpContext.Session.Get<List<int>>("ssShoppingCart");
             List<int> lstOrderDetail = HttpContext.Session.Get<List<int>>("ssOrderDetail");
             Order order = shoppingCartVM.Order;
-           
+            order.Status = false;
+            order.StatusDelivery =false; 
             _db.Orders.Add(order);
             _db.SaveChanges();
 
