@@ -98,7 +98,7 @@ namespace do_an_web.Areas.Identity.Pages.Account
                     {
                         _logger.LogInformation("User logged in.");
 
-                        return RedirectToAction("Index", "Category", new { area = "Admins" });
+                        return RedirectToAction("Index", "Product", new { area = "Admins" });
                     }
                     else
                     {

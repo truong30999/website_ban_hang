@@ -36,7 +36,7 @@
         <!-- Main Header -->
         <header class="main-header">
             <!-- Logo -->
-            <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="logo" style="padding-bottom:60px">
+            <a asp-area="Admins" asp-controller="Product" asp-action="Index" class="logo" style="padding-bottom:60px">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>AP</b>T</span>
                 <!-- logo for regular state and mobile devices -->
@@ -101,9 +101,9 @@
                     <li class="header">Management</li>
                     <!-- Optionally, you can add icons to the links -->
                   
-                    <li class="active"><a asp-area="Admin" asp-controller="AdminUsers" asp-action="Index"><i class="fa fa-link"></i> <span>Admin User</span></a></li>
-                    <li class="active"><a asp-area="Admin" asp-controller="Products" asp-action="Index"><i class="fa fa-link"></i> <span>Product</span></a></li>                    
-                    <li class="active"><a asp-area="Admin" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Order</span></a></li>
+                    <li class="active"><a asp-area="Admins" asp-controller="AdminUser" asp-action="Index"><i class="fa fa-link"></i> <span>Admin User</span></a></li>
+                    <li class="active"><a asp-area="Admins" asp-controller="Product" asp-action="Index"><i class="fa fa-link"></i> <span>Product</span></a></li>                    
+                    <li class="active"><a asp-area="Admins" asp-controller="Orders" asp-action="Index"><i class="fa fa-link"></i> <span>Order</span></a></li>
                     <li class="treeview">
                         <a href="#">
                             <i class="fa fa-link"></i> <span>Customer Management</span>
@@ -112,8 +112,8 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a a asp-area="Admin" asp-controller="Customers" asp-action="Index">Customer List</a></li>
-                            <li><a asp-area="Admin" asp-controller="Orders" asp-action="Index">Order</a></li>
+                            <li><a a asp-area="Admins" asp-controller="User" asp-action="Index">Customer List</a></li>
+                            <li><a asp-area="Admins" asp-controller="Orders" asp-action="Index">Order</a></li>
                         </ul>
                     </li>
                 </ul>

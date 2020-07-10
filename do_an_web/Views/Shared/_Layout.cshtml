@@ -45,7 +45,7 @@
                 <ul class="navbar-nav flex-grow-1">
 
 
-                    @if (User.IsInRole(SD.AdminEndUser))
+                    @*@if (User.IsInRole(SD.AdminEndUser))
                     {
                         <li class=" nav-item dropdown">
                             <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -90,7 +90,7 @@
 
                     }
                     else
-                    {
+                    {*@
                         <li class="nav-item">
                             <a class="nav-link " asp-area="Customer" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -123,7 +123,7 @@
                             </li>
                         }
 
-                    }
+                    @*}*@
 
                 </ul>
             </div>
